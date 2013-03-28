@@ -1,0 +1,29 @@
+Size of primitive data types
+
+	Integer data types		Default Values
+		byte (1 byte) 		0
+		short (2 bytes)		0
+		int (4 bytes)		0
+		long (8 bytes)		0L
+
+	Floating Type
+		float (4 bytes)		0.0f
+		double (8 bytes)	0.0d
+
+	Textual
+		char (2 bytes)		'\U000'
+
+	Logical
+		boolean (1 byte)	false
+		
+NOTE:	Local variables are slightly different; 
+		the compiler never assigns a default value to an uninitialized local variable. 
+		If you cannot initialize your local variable where it is declared, make sure to assign it a value before you attempt to use it. 
+		Accessing an uninitialized local variable will result in a compile-time error.
+		
+Wrapper Classes
+	Wrapper class is a wrapper around a primitive data type. 
+	It represents primitive data types in their corresponding class instances 
+	e.g. a boolean data type can be represented as a Boolean class instance.
+	The wrapper classes are used extensively with Collection classes.
+	Byte, Long, Short, Float, Double, Integer, Boolean, Character		

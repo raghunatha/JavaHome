@@ -1,0 +1,4 @@
+Deep copy copies all fields in the original object to the new object.
+If any of the fields of the original object are references to other objects, deep copy copies the objects to which original object refers.
+
+Ref: http://www.jusfortechies.com/java/core-java/deepcopy_and_shallowcopy.php

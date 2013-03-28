@@ -1,0 +1,74 @@
+
+Statement:
+	1.In programming, a statement is an instruction to do something.
+	2.In Java, a statement is terminated with a semicolon and multiple statements can be written on a single line.
+	3.In Java, an empty statement is legal and does nothing.
+	
+	
+Expressions:
+	1.Expressions are essential building blocks of any Java program.
+	2.They are built using values, variables, operators and method calls.
+	3.Some expressions can be made statements by terminating them with a semicolon.
+	
+
+Statement Blocks:
+	1.You can have a block of statements enclosed between braces.
+	2.If the value of expression is true, all the statements enclosed in the block will be executed.
+	
+	
+if Statement:
+	1.The if statement is a conditional branch statement. The syntax of the if statement is either one of these two
+		if (booleanExpression) {
+ 	   		statement (s)
+		}
+		
+		or
+		
+		if (booleanExpression) {
+ 		   statement (s)
+		} else {
+    		statement (s)
+		}	
+
+
+Switch Statement:
+	1.The break statement is used to break from an enclosing do, while, for, or switch statement.
+	2.'break' breaks the loop without executing the rest of the statements in the block.
+	
+	
+Continue Statement:
+	1.The continue statement stops the execution of the current iteration and causes control to begin with the next iteration.		
+			
+
+while statement:
+	1.One way to create a loop is by using the while statement.
+		while (booleanExpression) {
+    		statement (s)
+		}
+	2.If there is only a single statement inside the braces, you may omit the braces.(not preferred)
+
+
+do-while statement:
+	1.The do-while statement is like the while statement, except that the associated block always gets executed at least once.
+		do {
+    		statement (s)
+		} while (booleanExpression);
+	2.Just like the while statement, you can omit the braces if there is only one statement within them. 
+	   However, always use braces for the sake of clarity.	
+	   
+	   
+for statement:
+	1.One way to create a loop is by using the for statement.
+		for ( init ; booleanExpression ; update ) {
+   			statement (s)
+   		}
+   	2.init is an initialization that will be performed before the first iteration.
+   	3.booleanExpression is a boolean expression which will cause the execution of statement(s) if it evaluates to true.
+   	4.update is a statement that will be executed after the execution of the statement block.		   
+
+
+for-each statement:
+	1.The general form of the for-each version of the for is
+		for(type variable : iterableObj) statement-block
+	2.The object referred to by iterableObj must be an array or an object that implements the new Iterable interface.	
+	   	

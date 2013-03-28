@@ -1,0 +1,11 @@
+Shallow copy, A new object is created that has an exact copy of the values in the original object. 
+If any of the fields of the object are references to other objects, just the reference addresses are copied i.e., only the memory address is copied
+
+ For Shallow copy,
+ Implement the class that you want to copy with Clonable interface and override clone() method of Object class and call super.clone() in it
+ 
+ NOTE:
+ The clone method in Object looks like 
+ protected native Object clone() throws CloneNotSupportedException;
+ The above method throws "CloneNotSupportedException" to indicate that the clone method has been called to clone an object, but the object's class does not implement the cloneable interface
+ 

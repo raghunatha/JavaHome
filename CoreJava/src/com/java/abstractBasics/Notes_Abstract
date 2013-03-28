@@ -1,0 +1,19 @@
+Abstract
+
+Abstract Class :
+	1.Cannot create an instance for an abstract class
+	2.Its sole purpose is to be extended
+	3.An abstract class means the class must be extended	
+NOTE: You can still use the abstract class as a declared reference type, for the purpose of polymorphism.
+
+
+Abstract Methods :
+	1.An abstract method means the method must be overridden
+	2.An abstract method has no body, so no curly braces. Just end the method declaration with a semicolon
+	3.If you declare an abstract method, you must declare the class abstract as well
+NOTE: An abstract class is not required to have an abstract method in it
+
+
+In Java, we can create a reference that is of type super class, to an object of its subclass
+
+NOTE: An abstract class can have ZERO or more abstract methods. But if there is an abstract method in a class then the class must be abstract 

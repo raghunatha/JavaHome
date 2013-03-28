@@ -1,0 +1,5 @@
+Enums:
+	i) An enum type is a type whose fields consist of a fixed set of constants
+	ii) All enums implicitly extend java.lang.Enum. Since Java does not support multiple inheritance, an enum cannot extend anything else.
+	iii) The constructor for an enum type must be package-private or private access. It automatically creates the constants that are defined 
+		at the beginning of the enum body. You cannot invoke an enum constructor yourself.

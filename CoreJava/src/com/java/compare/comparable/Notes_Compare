@@ -1,0 +1,15 @@
+Comparator and comparable in java are two interfaces, used to implement sorting in java
+
+Comparator in java is defined in java.util package
+Comparable in java is defined in java.lang package
+
+Comparator has method  public int compare (Object o1, Object o2), which returns a negative integer, zero, or a positive integer as the first argument is less than, equal to, or greater than the second.
+Comparable has method public int compareTo(Object o) which returns a negative integer, zero, or a positive integer as this object is less than, equal to, or greater than the specified object.
+
+Comparator in Java compares two objects provided to the method
+Comparable interface compares "this" reference with the object specified
+
+Comparable in Java is used to implement natural ordering of object. In Java API String, Date and wrapper classes implements Comparable interface.
+
+If any class implement Comparable interface in Java then collection of that object either List or Array can be sorted automatically by using  
+Collections.sort() or Arrays.sort() method and object will be sorted based on there natural order defined by CompareTo method

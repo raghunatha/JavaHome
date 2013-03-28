@@ -1,0 +1,23 @@
+Java, like other object-oriented languages, supports class inheritance. Inheritance allows one class to "inherit" the properties of another class.
+
+What Member Variables Does a Subclass Inherit?
+
+	Rule: A subclass inherits all of the member variables within its superclass that are accessible to that subclass (unless the member variable is hidden by the subclass).
+		1.	Subclasses inherit those member variables declared as public or protected.
+		2.  Subclasses inherit those member variables declared with no access specifier as long as the subclass is in the same package as the superclass.
+		3.	Subclasses don't inherit a superclass's member variable if the subclass declares a member variable using the same name. The subclass's member variable is said to hide the member variable in the superclass.
+		4.	Subclasses don't inherit the superclass's private member variables.
+
+
+What Methods Does a Subclass Inherit?
+
+	Rule: A subclass inherits all of the methods within its superclass that are accessible to that subclass (unless the method is overriden by the subclass).
+		1.	Subclasses inherit those methods declared as public or protected.
+		2.	Subclasses inherit those superclass methods declared with no access specifier as long as the subclass is in the same package as the superclass.
+		3.	Subclasses don't inherit a superclass's method if the subclass declares a method using the same name. The method in the subclass is said to override the one in the superclass.
+		4.	Subclasses don't inherit the superclass's private methods.
+	Note: A subclass can either completely override the implementation for an inherited method, or the subclass can enhance the method by adding functionality to it.
+	
+ :( --  Good designers write most of their code in terms of interfaces, not concrete base classes
+ 		prefer  Interface inheritance over implementation inheritance
+ 		Programming to interfaces is at the core of flexible structure.	

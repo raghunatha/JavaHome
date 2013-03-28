@@ -1,0 +1,27 @@
+Set:
+	1.A Set is an interface that extends Collection interface.
+	2.The Set interface contains only methods inherited from Collection, and adds the restriction that duplicate elements are prohibited.
+	
+	
+The Java platform contains three general-purpose Set implementations: 
+	1.HashSet :- HashSet is the best-performing implementation. However it makes no guarantees concerning the order of elements
+	2.TreeSet :- TreeSet orders its elements based on their values. It is substantially slower than HashSet
+	3.LinkedHashSet :- LinkedHashSet orders its elements based on the order in which they were inserted into the set (insertion-order)
+	
+
+
+Ques : I have a list with duplicates and if i need to find the count the no of duplicates removed
+
+	List<String> list = new ArrayList<String>();
+	// list gets populated from user input...
+	Set<String> set = new HashSet<String>(list);
+	int numDuplicates = list.size() - set.size();
+	
+	//Different one chek this
+	 List<String> strings = new ArrayList<String>();
+ 	//populate the array
+ 	...
+ 	List<String> dedupped = new ArrayList<String>(new HashSet<String>(strings));
+ 	int numdups = strings.size() - dedupped.size();
+	
+	

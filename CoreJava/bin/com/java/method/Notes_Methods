@@ -1,0 +1,6 @@
+http://www.javaworld.com/javaworld/javaqa/2000-05/03-qa-0526-pass.html
+
+Java passes object references by value as well
+
+Note: You also can use interface names as return types. In this case, the object returned must implement the specified interface.
+

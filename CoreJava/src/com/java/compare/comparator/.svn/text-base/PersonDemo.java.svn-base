@@ -1,0 +1,23 @@
+package com.java.compare.comparator;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+public class PersonDemo {
+
+    public static void main(String[] args) {
+        List<Person> people = Arrays.asList(
+                new Person("Joe", 24.0),
+                new Person("Pete", 18.0),
+                new Person("Chris", 21.0)
+        );
+        Collections.sort(people, new LexicographicComparator());
+        for(Person person: people)
+        	System.out.println(person);
+        System.out.println("");
+        Collections.sort(people, new AgeComparator());
+        for(Person person: people)
+        	System.out.println(person);
+    }
+}

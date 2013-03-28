@@ -1,0 +1,24 @@
+Collections are primarily defined through a set of interfaces.
+collection is a interface implemented by all other interfaces like List,set..where as collections is a class.
+Collections are used to store, retrieve, manipulate, and communicate aggregate data.
+
+A collection is a group of data manipulated as a single object. 
+A collections framework is a unified architecture for representing and manipulating collections.
+All collections frameworks contain the following:
+	i)Interfaces :-  the abstract data types that the framework supports
+	ii)Implementations :- the concrete versions of these interfaces
+	iii)Algorithms :-  the predefined actions that can be defined on either the interfaces or their implementations
+	
+Benefits of the Java Collections Framework:
+	i)Reduces programming effort
+	ii)Increases program speed and quality
+	iii)Reduces effort to learn and to use new APIs	
+
+
+Interface Type	Implemented by
+	Set			HashSet, LinkedHashSet, EnumSet
+	SortedSet	TreeSet
+	List		Vector, Stack, ArrayList, LinkedList
+	Queue		PriorityQueue, LinkedList
+	Map			Hashtable, HashMap, LinkedHashMap, WeakHashMap, IdentityHashMap
+	SortedMap	TreeMap	

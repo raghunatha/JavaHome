@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/CignitiBatch001/!svn/ver/55/trunk/Java_Core/src/com/java/threads
+END
+DeadLock.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/CignitiBatch001/!svn/ver/55/trunk/Java_Core/src/com/java/threads/DeadLock.java
+END
+RunnableReservation.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/CignitiBatch001/!svn/ver/55/trunk/Java_Core/src/com/java/threads/RunnableReservation.java
+END
+ReserveTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/CignitiBatch001/!svn/ver/55/trunk/Java_Core/src/com/java/threads/ReserveTest.java
+END
+Reservation.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/CignitiBatch001/!svn/ver/55/trunk/Java_Core/src/com/java/threads/Reservation.java
+END
+CancelTicket.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/CignitiBatch001/!svn/ver/55/trunk/Java_Core/src/com/java/threads/CancelTicket.java
+END
+RunnableReservationTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/CignitiBatch001/!svn/ver/55/trunk/Java_Core/src/com/java/threads/RunnableReservationTest.java
+END
+ReservationTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/CignitiBatch001/!svn/ver/55/trunk/Java_Core/src/com/java/threads/ReservationTest.java
+END
+Reserve.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/CignitiBatch001/!svn/ver/55/trunk/Java_Core/src/com/java/threads/Reserve.java
+END
+NewConsumer.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/CignitiBatch001/!svn/ver/55/trunk/Java_Core/src/com/java/threads/NewConsumer.java
+END
+Consumer.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/CignitiBatch001/!svn/ver/55/trunk/Java_Core/src/com/java/threads/Consumer.java
+END
+BookTicket.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/CignitiBatch001/!svn/ver/55/trunk/Java_Core/src/com/java/threads/BookTicket.java
+END
+Communicate.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/CignitiBatch001/!svn/ver/55/trunk/Java_Core/src/com/java/threads/Communicate.java
+END
+NewCommunicate.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/CignitiBatch001/!svn/ver/55/trunk/Java_Core/src/com/java/threads/NewCommunicate.java
+END
+Producer.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/CignitiBatch001/!svn/ver/55/trunk/Java_Core/src/com/java/threads/Producer.java
+END
+NewProducer.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/CignitiBatch001/!svn/ver/55/trunk/Java_Core/src/com/java/threads/NewProducer.java
+END

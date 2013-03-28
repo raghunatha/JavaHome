@@ -1,0 +1,15 @@
+Native : Native methods are platform dependent methods. Native methods does not contain body, only signature is present.
+Transient : Given to variables which should not be serialized.
+
+Volatile: volatile keyword is used to indicate that a variables value will be modified by different threads.
+The value of his variable will never be cached thread-locally: all reads and writes will go straight to "main memory"
+Access to the variable acts as thought it is enclosed in a synchronized block.
+In general all threads will have local memory where it stores the values, but volatile variable cannot be stored in it.
+
+http://www.javamex.com/tutorials/synchronization_concurrency_1.shtml
+Attempting to synchronize on a null object will throw null pointer exception 
+
+//why inner class declared inside a method can access only final local variables
+/*
+ * http://learnjavaindetail.blogspot.com/2010/06/why-inner-class-can-access-only-final.html
+ */

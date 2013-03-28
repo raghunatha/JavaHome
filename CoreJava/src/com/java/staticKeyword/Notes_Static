@@ -1,0 +1,21 @@
+static cannot be used inside a method
+
+static variable
+	i) It is a variable which belongs to the class and not to object(instance)
+	ii) Static variables are initialized only once , at the start of the execution . These variables will be initialized first, before the initialization of any instance variables
+	iii) A single copy to be shared by all instances of the class
+	iv) A static variable can be accessed directly by the class name and doesn’t need any object
+	v) Syntax : <class-name>.<variable-name>
+	
+static method
+	i) It is a method which belongs to the class and not to the object(instance)
+	ii) A static method can access only static data. It can not access non-static data (instance variables)
+	iii) A static method can  call only  other static methods and can not call a non-static method from it.
+	iv) A static method  can be accessed directly by the class name and doesn’t need any object
+	v) Syntax : <class-name>.<method-name>
+	vi) A static method cannot refer to "this" or "super"  keywords in anyway
+	
+static block 
+	i) The static block, is a block of statement inside a Java class that will be executed when a class is first loaded in to the JVM
+	ii) A static block helps to initialize the static data members, just like constructors help to initialize instance members	
+		

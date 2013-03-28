@@ -1,0 +1,42 @@
+Interfaces
+
+An interface is a collection of method definitions (without implementations) and constant values.
+
+You use interfaces to define a protocol of behavior that can be implemented by any class anywhere in the class hierarchy
+
+Interfaces are useful for:
+	1.Capturing similarities between unrelated classes without forcing a class relationship.
+	2.Declaring methods that one or more classes are expected to implement.
+	3.Revealing an object's programming interface without revealing its class. 
+NOTE: classes that implement the same interface may or may not be related through the class hierarchy	
+
+	1.All interface methods are implicitly public and abstract. In other words, you do not need to actually type the 
+	   public or abstract modifiers in the method declaration, but the method is still always public and abstract.
+	2.All variables defined in an interface must be public, static, and final in other words, interfaces can declare 
+	   only constants, not instance variables
+	3.Interface methods must not be static.
+	4.Because interface methods are abstract, they cannot be marked final. 
+	5.An interface can extend one or more other interfaces.
+	6.An interface cannot extend anything but another interface.
+	7.An interface cannot implement another interface or class.
+	8.An interface must be declared with the keyword interface.
+	9.Interface types can be used polymorphically   
+	10.key rule for interface constants. They must always be "public static final" (but you don't have to declare them that way,
+	    because interface constants are declared in an interface).
+	    
+	    
+Implementing Interfaces:
+	1.To declare that your class implements one or more interfaces, use the keyword implements followed by 
+	   a comma-delimited list of the interfaces implemented by your class.
+	2.By convention, the implements clause follows the extends clause if it exists.
+	3.A class can extend only one class, but implement many interface.
+	4.An interface itself can extend another interface. An interface cannot extend another interface.
+	5.An implementation class itself can be abstract and if so interface methods need not be implemented.
+	
+
+Extending Interfaces:
+	1.An interface can extend another interface, similarly to the way that a class can extend another class.
+	2.A Java class can only extend one parent class. Multiple inheritance is not allowed. Interfaces are not classes,
+	   an interface can extend more than one parent interface.
+	3.The extends keyword is used once, and the parent interfaces are declared in a comma-separated list.
+		Ex:- public interface Hockey extends Sports, Event   	   	    

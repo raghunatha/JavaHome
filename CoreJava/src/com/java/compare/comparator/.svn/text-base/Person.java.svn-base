@@ -1,0 +1,34 @@
+package com.java.compare.comparator;
+
+public class Person {
+
+	private String name;
+	private double age;
+
+	public Person(String newname, double newage) {
+		setName(newname);
+		setAge(newage);
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public double getAge() {
+		return age;
+	}
+
+	public void setAge(double age) {
+		this.age = age;
+	}
+
+	@Override
+	public String toString() {
+		return String.format("{name=%s, age=%f}", name, age);
+	}
+
+}

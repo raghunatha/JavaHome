@@ -1,0 +1,24 @@
+The widening conversion is permitted in the following cases:
+	i) byte to short, int, long, float, or double
+	ii)	Short to int, long, float, or double
+	iii) char to int, long, float, or double
+	iv) int to long, float, or double
+	v) long to float or double
+	vi) float to double
+	
+
+The narrowing conversion occurs from a type to a different type that has a smaller size, such as from a long (64 bits) to an int (32 bits).
+In general, the narrowing primitive conversion can occur in these cases:
+	i) short to byte or char
+	ii) char to byte or short
+	iii) int to byte, short, or char
+	iv) long to byte, short, or char
+	v) float to byte, short, char, int, or long
+	vi) double to byte, short, char, int, long, or float
+The narrowing primitive conversion must be explicit.
+You need to specify the target type in parentheses.	
+
+
+An automatic type conversion will take place if the following two conditions are met:
+	i) The two types are compatible.
+	ii) The destination type is larger than the source type.
