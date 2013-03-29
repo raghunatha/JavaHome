@@ -1,0 +1,819 @@
+<html>
+	<body bgcolor="#F8F8F8" >
+	<table border="4" align="center" BORDERCOLOR="purple">
+		<tr bgcolor="silver"><td colspan="2" align="center"><b><h1>Java is a programming language</h1></b></td></tr>
+		<tr>
+		<td ><p>&nbsp;</p>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		
+		</td>
+		<td>
+
+
+<b>What are the main modules in java?</b><br>
+&nbsp;&nbsp;&nbsp;1) J2SE -- java 2 standard edition<br>
+&nbsp;&nbsp;&nbsp;2) J2EE -- java 2 enterprise edition<br>
+&nbsp;&nbsp;&nbsp;3) J2ME -- java 2 micro edition<br>
+
+<b>java software contains </b><br>
+&nbsp;&nbsp;&nbsp;JDK -- java development kit (jdk internally contains JRE)<br>
+&nbsp;&nbsp;&nbsp;JRE -- java runtime environment<br>
+&nbsp;&nbsp;&nbsp;Current version of java is 1.7<br>
+
+<p>JVM -- java virtual machine --> reads the .class file and can convert into machine language which the underlying platform can understand<br>
+jvm makes java platform independent<br>
+jvm is platform dependent making java paltform independent</p>
+
+<p>All java programmes are stored in .java extenion file<br>
+when a java programme is compiled .class file is created. This file contains byte codes. This file is portable across platforms<br>
+JVM can read the .class file and can onvert it into machine instructions</p>
+<hr size="2" COLOR="purple">
+<b>Data types</b>
+
+<p>int --> primitive data type --> used for simple computations<br>
+Integer -- > wrapper class --> used to store things in collection objects --> Object representation of primitive data type <br>
+The size of int is 4bytes(32 bits). Size of Integer is also the same<br>
+<br>
+String is not a primitive datatype. It is a class in java</p>
+<hr size="2" COLOR="purple">
+<b>TypeCasting</b>
+
+<p>Changing of an entity from one data type to another<br>
+<br>
+int x = 5;<br>
+double d = x; //compiler automatically allows this since x(4 bytes) is smaller in size than d(8 bytes)<br>
+<br>
+double a = 10.4;<br>
+int b = a; // compile time error<br>
+int b = (int)a; //No error. typecasting of double to integer</p>
+<hr size="2" COLOR="purple">
+<b>Operators: </B>
+<p>++, --, ||, &&, == ......<br>
+ex: <br>
+++ --> increment operator<br>
+a++ means (a = a+1)<br>
+<br>
+|| --> or condition<br>
+if((a>5) || (b>4)) --> returns true if either one of the conditions in the if loop are true<br>
+<br>
+&& --> and condition<br>
+if((a>5) && (b>4)) --> returns true if both the conditions in the if loop are true<br>
+<br>
+== --> equals comparision<br>
+if(s == 5) --> returns true if the value of s is 5<br></P>
+<hr size="2" COLOR="purple">
+<b>String </B>
+<p>
+String s1 = "raghu"; // creates a string pool and stores it in say 5000 memory location. so s1 will be pointing to 5000 memory location<br>
+String s2 = "raghu"; // will not assign a new memory location for "raghu", since it is present in string pool at 5000 memory location. so s2 will<br> also point to 5000 memory location only <br>
+String s3 = "raghu"; // s3 will also point to 5000 memory location, as per the above concept<br>
+String s4 = "Raghu"; // java is case sensitive, "raghu" is not equal to "Raghu" so again a new memory for "Raghu" will be created say 5500<br>
+<br>
+String s5 = "naveen"; // creates a string pool and stores it in say 6000 memory location(since this is the first time we are creating "naveen"<br> string.<br>
+<br>
+s1 == s2 --> returns true. since == compares addresses which is 5000 for both<br>
+s1.equals(s2) -- returns true. since .equals method compares the values which these string hold which is "raghu".<br>
+<br>
+String s6 = new String("raghu"); // string pool concept will not hold good here since we are saying "new", so every time you use new key word a new<br> meory will be created assume 7000 for this s6<br>
+String s7 = new String("raghu"); // creates a new memory location say 8000 and s7 will poin to it.<br>
+<br>
+s6 == s7 --> returns false. since == compares addresses which is 7000 for s6 and 8000 for s7 which are not equal<br>
+s6.equals(s7) -- returns true. since .equals method compares the values which these string hold which is "raghu".<br>
+<br>
+s1 == s6 --> returns false. since == compares addresses which is 5000 for s1 and 7000 for s6 which are not equal<br>
+s6.equals(s7) -- returns true. since .equals method compares the values which these string hold which is "raghu".<br>
+<br>
+Strings are immutable in java<br>
+StringBuffer is mutable<br>
+StringBuilder is mutable<br>
+<br>
+Main difference between String and StringBuffer is String is immutable while StringBuffer is mutable means you can modify a StringBuffer object<br>
+You can convert a StringBuffer or StringBuilder into String by its toString() method<br>
+<br>
+String is immutable while StringBuffer and StringBuilder are mutable objects<br>
+StringBuffer is synchronized while StringBuilder is not which makes StringBuilder faster than StringBuffer<br>
+<br>
+Example:<br>
+StringBuffer sb = new StringBuffer("Hello"); // assume that sb points to "Hello" in 1234 memory location<br>
+StringBuffer sb1 = new StringBuffer("Hello"); // assume that sb1 points to "Hello" in 5678 memory location<br>
+<br>
+sb.equals(sb1); //returns false since the equals method on Object class is called which compares addresses which are 1234 and 5678<br>
+<br>
+//To compare String buffer objects, first convert them to String using the toString method <br>
+sb.toString().equals(sb1.toString())); // now the equals method in String class is called which compares "Hello" in both the objects and returns true<br>
+<br>
+//The above concept of StringBuffer holds good for StringBuilder also </p>
+<hr size="2" COLOR="purple">
+<B>
+arrays: </b><p>
+Arrays are sequential storage of similar kind of data<br>
+int[] arr = new int[5]; //declaring an array<br>
+arr[0]= 9; //storing values<br>
+System.out.println(arr[0]); //printing the values of an array<br>
+the maximum number of values that can be stored in "arr" array is 5.<br>
+The index of the array starts from "0" and goes till "size - 1"<br>
+Arrays size cannot grow dynamically<br>
+<br>
+int[] arr_new = {1, 3, 4, 6, 9, 2}; // declaring and initializing an array<br>
+<br>
+int[][] arr_multi = new int[3][5]; //multi dimension arrays<br>
+The more the number of square brackets, the more no of dimensions it will be. <br></p>
+<hr size="2" COLOR="purple">
+<p>
+Control statements -- these are not loops<br>
+1) if, else if, else<br>
+2) switch<br></p>
+<hr size="2" COLOR="purple"><p>
+Loops<br>
+1) for<br>
+2) while<br>
+3) do-while<br>
+4) foreach<br></p>
+<hr size="2" COLOR="purple">
+<p>
+1) break -- breaks out of the current loop -- can be used only in loops and switch<br>
+2) continue -- skips the execution of below lines of code -- can be used only in a loop<br>  </p>
+<hr size="2" COLOR="purple">
+<b>Features of OOPS</B>
+
+Abstraction<br>
+Hiding the unnecessary data from the user  and exposing only essential information<br>
+<br>
+Encapsulation<br>
+The process of binding code and data together in the form of a capsule<br>
+<br>
+Polymorphism<br>
+The feature by which one class acquires the properties and functionalities of another class<br>
+<br>
+Inheritance<br>
+The feature that allows the same interface to be used for a general set of actions<br>
+<br>
+<hr size="2" COLOR="purple">
+
+Class:- class is a template which tells us how exactly the things will look like. <br>
+	class will have variables and methods<br>
+Object:- the representation of a particular class in the memory is via using object<br>
+<br>
+what is the memory we are taling about?<br>
+On your RAM there will be some memory allocated, called HEAP and STACK<br>
+HEAP: All the objects created in java are stored in heap<br>
+STACK: All the method level variables are stored in stack<br>
+<hr size="2" COLOR="purple">
+Garbage collection<br>
+<br>
+Garbage collection is automatically handled by jvm, where a deamon thread runs in the background looking for any unused objects to remove or free<br> them from memory<br>
+<br>
+<hr size="2" COLOR="purple">
+Creating a class<br>
+<br>
+class Employee{<br>
+ -- contains variables<br>
+ -- contains methods<br>
+}<br>
+<br>
+Class name will start with a capital letter<br>
+a class is created with an extension .java<br>
+<br>
+In a class file we can have any number of class files. (NOTE: all these files cannot be public)<br>
+A particular class file can only have one public class. And the public class name and the file name must be same<br>
+<br>
+NOTE: A class can contain only one public class and any number of default classes -- we are not talking about inner classes here<br>
+class allows public and default as access modifiers (cannot allow private and protected)<br>
+<br>
+<hr size="2" COLOR="purple">
+Creating an instance of a class<br>
+<br>
+ClassName objectName = new ClassName(); // creating object <br>
+this means creating physical location in memory<br>
+<br>
+Employee emp1 = new Employee(); // emp1 pointing to an Employee object at some memory location<br>
+Employee emp2 = new Employee(); // emp2 pointing to an Employee object at some memory location<br>
+emp1 will be different and emp2 will be different, since they point to 2 different memory locations<br>
+<br>
+Employee emp3; // emp3 will not refer to any memory location<br>
+emp3 = emp1; // emp3 and emp1 are two different reference variables pointing to same memory location<br>
+		So if emp3 changes emp1 changes and viceversa<br>
+<br>
+NOTE: if you cahnge some values in emp2 will not be reflected in emp1 since emp1 and emp2 are pointing to different memory location<br>
+<br>
+Employee emp4 = new Employee(); // emp4 pointing to an Employee object at some memory location<br>
+Employee emp5 = new Employee(); // emp5 pointing to an Employee object at some memory location<br>
+emp4 and emp5 are pointing to two different memory locations<br>
+emp4 = emp5; // emp4 will now point to same memory location as emp5<br>
+<br>
+Employee emp6 = new Employee(); // emp6 pointing to an Employee object at some memory location<br>
+Student stud1 = new Student(); // stud1 pointing to an Student object at some memory location<br>
+emp6 = stud1; // compilation error. since the reference variables are of different type<br>
+<br>
+<hr size="2" COLOR="purple">
+Eclipse introduction<br>
+workspace introduction<br>
+<br>
+<hr size="2" COLOR="purple">
+Packages<br>
+<br>
+used to group similar classes together for better maintainability<br>
+A package can contain classes and interfaces<br>
+<br>
+What is the default package which is imported by your class -- java.lang package<br>
+<br>
+<hr size="2" COLOR="purple">
+com.rnr package<br>
+Employee class with id and name, generate getters and setters<br>
+getters and setters are used to assign values and retrieve values<br>
+<br>
+The variables are made private so that they can be hidden from external usage.<br>
+The private variables are accessible only with in the class<br>
+To access private variables out side the class use their getters and setters<br>
+<br>
+ctrl + Shift + f --> for formatiing the code<br>
+<br>
+<hr size="2" COLOR="purple">
+Access Modifiers<br>
+<br>
+Public <br>
+<br>
+<hr size="2" COLOR="purple">
+pojo :- plain old java objects<br>
+a simple class with variables and getters and setters<br>
+in general we will not write any business logic in these classes<br>
+<br>
+<hr size="2" COLOR="purple">
+How to create and object for Employee class<br>
+Employee emp1 = new Employee();<br>
+<br>
+what can be accessed once an object is created?<br>
+To access variables or methods in the class we need to have object for that class<br>
+can we access all variables and methods of the class -- check this in access modifiers and scope section below<br>
+<br>
+with out creating objects can we call any variables and methods ?<br>
+yes : static variables and methods can be called directly with the help of class name -- check this in static key word section below <br>
+<br>
+what are the values assigned to the variables once an object is created.<br>
+class level variables are assigned with their respective default values<br>
+Ex: default values for class level int variables are 0<br>
+    default values for class level String variables are null<br>
+<br>
+How to initialize values to id and name while ceating an object<br>
+use a constructor which is parameterized<br>
+create a parameterized constructor with id and name first and then call that constructor to create an object<br>
+<br>
+<hr size="2" COLOR="purple">
+Methods<br>
+<br>
+public void sayHello(){<br>
+-- some statements which needs to run<br>
+}<br>
+<br>
+Methods will have <br>
+access modifier(public, private, protected, default)<br>
+return type (void, int, String, .......) -- return type can be any primitive type or also any class type(like Employee, Shape.....)<br>
+method name<br>
+( ) -- which can take arguments<br>
+{ } -- defines a body for the method<br>
+<br>
+Ex 1:<br>
+public void printName(String employeeName){<br>
+  System.out.println(employeeName);<br>
+}<br>
+<br>
+access modifier -- public<br>
+return type -- void (which means the method is not returning any thing)<br>
+method name -- printName<br>
+arguments -- employeeName of type String<br>
+NOTE : a void method cannot contain a return statement<br>
+<br>
+<br>
+Ex 2:<br>
+public int addNumbers(int num1, int num2){<br>
+  return num1 + num2;<br>
+}<br>
+<br>
+access modifier -- public<br>
+return type -- int (which means the method is returning an int value)<br>
+method name -- addNumbers<br>
+arguments -- num1 and num2 of type int<br>
+NOTE : contains a return statement which returns an int value<br>
+<br>
+<br>
+Ex 3:<br>
+public Employee getEmployeeDetails(int employeeId){<br>
+  Employee emp;<br>
+  -- some code which gets the employee record from data base and stores it in emp Object<br>
+  return emp;<br>
+}<br>
+<br>
+access modifier -- public<br>
+return type -- Employee (which means the method is returning an Employee object)<br>
+method name -- getEmployeeDetails<br>
+arguments -- employeeId of type int<br>
+NOTE : contains a return statement which returns an Employee object<br>
+<hr size="2" COLOR="purple">
+Constructor<br>
+<br>
+constructor is a kind of method : -- it is a method with out return type<br>
+<br>
+Employee emp = new Employee(); -- "Employee()" is a call to Employee class default constructor<br>
+Employee emp = new Employee(1, "Raghu"); -- Employee(1, "Raghu) is a call to Employee class parameterized constructor<br>
+<br>
+constructors are used to initialize values to objects while they are being created<br>
+<br>
+//default constructor -- also called as no argument constructor<br>
+public Employee() {<br>
+	<br>
+}<br>
+<br>
+//parameterized constructor<br>
+public Employee(int employeeId, String employeeName) {<br>
+  this.employeeId = employeeId;<br>
+  this.employeeName = employeeName;<br>
+}<br>
+<br>
+constructor has the same name as the class name<br>
+constructors are ingeneral declared public (can also be private, protected and default)<br>
+constructors can be overloaded -- check this in overload key word section below <br>
+construcors cannot be overridden<br>
+if you dont write a constructor in your class then the compiler will write a default constructor for you<br>
+if you write any type o constructor in your class, the compiler will not add a default constructor for you<br>
+default constructor is always a no-argument constructor<br>
+every constructor by default will have a call to its super class default coastructor <br>
+can call other constructors by using this keyword -- check this in super key word section below<br>
+can call super class constructors by using super keyword -- check this in super key word section below <br>
+<br>
+If a constructor is made private we cannot call that constructor to create an object from outside the class, since the private constructor is not<br> visible outside.
+<br>
+In each and every constructor the compiler by default adds the key word super(), which means that it tries to call the super class default<br> constructor evry time before running your constructor<br>
+If you explictly mention super() in you constructor then that line must be always the first line of your constructor, else a compilation error is<br> shown
+<br>
+NOTE: to call a super class parameterized constructor, just add parameters to the super constructor like, super("Raghu") -- this calls the super<br> class constructor which takes string as argument<br>
+<br>
+To call a current class constructor from another constructor use the key word this() // "this()" must also be the first line in your constructor call<br>
+to call a parameterized constructor in the same class overload the this() call, this(2.0, "raghu") -- this calls a constructor in the current class<br> with double and string as input arguments<br>
+NOTE: super() and this() cannot be written at the same time in a constructor<br>
+To call a parent class default constructor from your classa constructor to call a parent class constructor use the keyword super() // <br>
+<br>
+Recursive constructor invocation cannot be done(calling 1stConstructor from 2nd and again calling 2ndConstructor from 1st) -- gives compilation error<br>
+<br>
+NOTE: In the lifecycle of an object the constructor is called only once<br>
+NOTE: this() and super() which are calls to constructors cannot be called from methods<br>
+<br>
+<hr size="2" COLOR="purple">
+Access Modifiers<br>
+<br>
+public -- can be applied to class, method, constructor, variables<br>
+private -- can be applied to method, constructor, variables,inner classes<br>
+protected -- can be applied to method, constructor, variables<br>
+default -- can be applied to class, method, constructor, variables<br>
+<br>
+class : - public and default<br>
+A public class can be accessed from any class<br>
+A default class can be accessed by any class with in the same package only<br>
+<br>
+Methods: public, private, protected, default<br>
+public methods can be accessed in all classes<br>
+private methods are accessible only with in the same class<br>
+default methods can be accesses in classes only with in the same package<br>
+protected methods can be accessed in classes with in the same package and in subclasses present in any package<br>
+<br>
+variables: public, private, protected, default<br>
+public variables can be accessed in all classes<br>
+private variables are accessible only with in the same class<br>
+default variables can be accesses in classes only with in the same package<br>
+protected variables can be accessed in classes with in the same package and in subclasses present in any package<br>
+<br>
+<hr size="2" COLOR="purple">
+Scope<br>
+The scope of a local variable is with in that method only<br>
+<br>
+<hr size="2" COLOR="purple">
+this key word<br>
+<br>
+this means current class (any thing related to current class)<br>
+this.employeeId -- refers to the current class employeeId field<br>
+this.employeeId = 5; -- assigning the value 5 to employeeId field<br>
+<br>
+//below example shows a method call using this keyword<br>
+public void test(){<br>
+ // some statements here<br>
+ this.print(); // call to the below print method<br>
+ // some statements here<br>
+}<br>
+<br>
+public void print(){<br>
+ // some statements here<br>
+}<br>
+<br>
+<hr size="2" COLOR="purple">
+super key word<br>
+<br>
+used to call super class variables or methods<br>
+<br>
+class Shape{<br>
+  public void print(){<br>
+   // some statements here<br>
+  }<br>
+}<br>
+<br>
+class Circle extends Shape{<br>
+<br>
+  public void print(){<br>
+    // some statements here<br>
+  }<br>
+<br>
+  public void getArea(){<br>
+    print(); // calling the current class print method<br>
+    super.print(); // calling the super class print method<br>
+    // some statements here	<br>
+  }<br>
+}<br>
+<br>
+<hr size="2" COLOR="purple">
+Inheritance:<br>
+Account : savingsAccount, checkings, current<br>
+Account will have generic information and all the subclasses will have some specific info related to them<br>
+<br>
+class Account{<br>
+<br>
+ public double getBalance(){<br>
+   //some code<br>
+ }<br>
+<br>
+ public Address getAddress(int customerId){<br>
+   //some code<br>
+ }<br>
+}<br>
+<br>
+<br>
+class SavingsAccount extends Account {<br>
+<br>
+ public double calculateInterest(){<br>
+   //some code<br>
+ }<br>
+}<br>
+NOTE: since savings class is extending Account class, the sub class will get all the features(getBalance() and getAddress()) methods in<br> SavingsAccount class also<br>
+<br>
+All classes by default extend Object class<br>
+To explictly extend a class use a keyword called extends
+multiple inheritance is not allowed -- a class can extend only one class<br>
+<br>
+<hr size="2" COLOR="purple">
+Abstract<br>
+<br>
+if you know partial implementation of a class then make the class abstract since it contains certain unimplemented methods whicha re called<br> abstract methods.<br>
+<br>
+An abstract method cannot be instantiated.<br>
+Abstract method can have Zero methods<br>
+Abstract class can have concrete methods<br>
+Abstract calss can have abstract methods<br>
+If there is atleas one abstract method in a class then that class must be declared as abstract<br>
+<br>
+An abstract method will not contain body(no implementation)<br>
+public void getArea(); // example of an abstract method<br>
+The implementation for an abstract method is written in the subclass<br>
+<br>
+A variable cannot be declared as abstract<br>
+<br>
+<hr size="2" COLOR="purple">
+Interface<br>
+<br>
+An interface contains all abstrcat methods only<br>
+By default all methods are equal<br>
+<br>
+An Inteface can extend multiple interfaces<br>
+A class can extend only one class<br>
+A class can implement multiple interfaces<br>
+<br>
+can have only static final variables<br>
+<br>
+<hr size="2" COLOR="purple">
+Marker Interfaces<br>
+<br>
+Empty interfaces are called marker interfaces.<br>
+It gives an indication to the jvm what needs to be done<br>
+Example : Serializable, clone <br>
+<br>
+<hr size="2" COLOR="purple">
+super key word<br>
+<br>
+can call super class constructors by using super keyword from a sub class constructor only<br>
+super(); // calls super class default constructor<br>
+super(1, "raghu"); // calls super class parameterized constructor<br>
+<br>
+can call super class methods from a method or a constructor using super key word<br>
+super.add(); // calls add method of the parent class<br>
+super.print("raghu"); // calls print(String name) method of the parent class<br>
+<br>
+<hr size="2" COLOR="purple">
+static key word<br>
+<br>
+class: static keyword can be applied for inner classes only<br>
+Methods: a static method is called by classname directly. A static method can call static variables and static methods only. A static method cannot<br> call non static variables and methods<br>
+Variables : class variables are called static variables. There is only one occurence of a class variable per class. static variables can be called<br> from static methods and non static methods also  <br>
+<br>
+<hr size="2" COLOR="purple">
+final key word<br>
+<br>
+Class: when a class is made final it cannot be inherited(i.e cannot be extended)<br>
+Mehtod: when a method is made final it cannot be overridden<br>
+variable: makes the variable immutable<br>
+<br>
+<hr size="2" COLOR="purple">
+Mehod overloading<br>
+<br>
+Overloading deals with multiple methods in the same class with same name but different method signature<br>
+Overloading lets you define the same operation in different ways for different data<br>
+<br>
+class SavingsAccount {<br>
+public void getTotalAmount(int rate) {…}<br>
+public void getTotalAmount(int rate, long principal)<br>
+{ … }<br>
+}<br>
+<br>
+getTotalAmount method in the above SavingsAccount class is overloaded<br>
+<br>
+<hr size="2" COLOR="purple">
+Method overriding<br>
+<br>
+Overriding deals with two methods, one in the parent class and the other in the child class and has the same name and signature<br>
+It lets you define the same operation in different ways for different object types<br>
+<br>
+class Account{<br>
+public void getIntrestRate(String accountType) {…}<br>
+}<br>
+class SavingsAccount extends Account {<br>
+public void getIntrestRate(String accountType) { …}<br>
+}<br>
+<br>
+getIntrestRate method in SavingsAccount class is overriding the getIntrestRate method in Account class<br>
+<hr size="2" COLOR="purple">
+Exception Hierarchy<br>
+<br>
+Throwable is the parent class. subclasses of throwable are i) Error & ii) Exception<br>
+<br>
+Error : they cannot be handled, examples: when jvm crashes, or when a database connction is lost, power failure......<br>
+<br>
+Exception: They are caused by improper coding done by the usere and can be devided in to two parts i) RuntimeExceptions & ii) CompileTimeExceptions<br>
+i) RuntimeExceptions: - exceptions caught at run time Ex:ArrayIndexout of bounds, IllegalArgument, ArithmaticException<br>
+ii) CompiletimeExceptions :- exceptions that ae caught at compile time by the compiler itself. Ex:All I/O operations<br>
+<br>
+try{<br>
+--<br>
+--- contains code which might throw an error<br>
+----<br>
+}catch(){<br>
+--<br>
+--- contains the steps to handle the exception<br>
+----<br>
+}finally{ // this method gets executed even if there is an exception or not<br>
+-- <br>
+--- contains the code that must be executed when an exception occurs<br>
+----<br>
+}<br>
+<br>
+try - catch - finally --> combination is valid<br>
+try - catch --> combination is valid<br>
+try - finally --> combination is valid<br>
+<hr size="2" COLOR="purple">
+Throws & Throw<br>
+<br>
+class Test{<br>
+<br>
+public int add(int num1, int num2)throws ArithmaticException{<br>
+  // some code here<br>
+}<br>
+<br>
+public void print(){<br>
+  try{<br>
+    add(1,5);<br>
+  }catch(ArithmaticException e){<br>
+    //some code here<br>
+  }<br>
+}<br>
+-- The above add method tells that it will not handle the exception instead it will tell the method which ever calls it to handle the exception <br>
+-- So the method print which is calling the add method will catch and handle the exceptions which add method throws<br>
+<br>
+Throws: I will not handle the exception, instead who ever invokes the method needs to handle it<br>
+Throw: Used to explictly throw an error<br>
+<hr size="2" COLOR="purple">
+User Defined exceptions<br>
+<br>
+To create our own exception class(custom exceptions), extend RuntimeException class or Exception class <br>
+<hr size="2" COLOR="purple">
+Serialization<br>
+<br>
+It is the process of converting data into bytes which can be sent over network to store it either in a file or a database .....<br>
+<hr size="2" COLOR="purple">
+Serializable vs externalizable<br>
+<br>
+serializable is done for us but to implement our coustom serialization we use externalizable by implmenting writeexternal, readexternal<br>
+<br>
+<hr size="2" COLOR="purple">
+Transient<br>
+<br>
+If you dont want to serailize evry thing <br>
+<br>
+<hr size="2" COLOR="purple">
+MultiThreading<br>
+<br>
+Difference between a thread and a process<br>
+<br>
+thread is a single point of execution<br>
+process contains multiple threads<br>
+<br>
+is JVM a process?<br>
+yes : it can have multiple threads to get the work done for you<br>
+<br>
+instead of doing sequentially one after the other, if i want to execute concurrently so that i can get my work done at a much faster pace that is<br> when i can use multithreading<br>
+Concurrent threads can do work paralley for you<br>
+<br>
+threads are not very simple to use. <br>
+<br>
+unproper handlig of threads will lead to deadlock<br>
+<br>
+threads have different states<br>
+<br>
+How do you create a thread?<br>
+1) either by extending the thread class or<br>
+2) by implementing the runnable interface <br>
+<br>
+when the class implemente runnable interface, it has to override runnable interface<br>
+run method contains any piece of code that needs to be executed by the thread<br>
+<br>
+someone needs to start the thread... who is going to start this thread?<br>
+There is a method called start, until unless some one triggers a method called start, that is when the code in run method gets executed<br>
+<br>
+<br>
+which one do you choose? either a runnable interface or extending the thread class?<br>
+<br>
+<br>
+public synchronized static void print(String name){<br>
+	System.out.println("Inside a synchronized method");<br>
+}<br>
+Only one thread can access this method at a time<br>
+<br>
+<br>
+which one is preferred? synchronized block or synchronized method?<br>
+synchronized block is preferrable since block only synchronizes the required lines of code, <br>
+so instead of synchronizing all lines of code, sysnchronize only those lines which are required by using synchronized block<br>
+<br>
+<br>
+<hr size="2" COLOR="purple">
+Equals & hashCode<br>
+<br>
+<hr size="2" COLOR="purple">
+clone<br>
+<br>
+<hr size="2" COLOR="purple">
+toStirng<br>
+<br>
+prints the hexadecimal value of object<br>
+<br>
+<hr size="2" COLOR="purple">
+ENUM<br>
+<br>
+<br>
+public Employee(int employeeId, String employeeName, String joiningDay) {<br>
+	super();<br>
+	this.employeeId = employeeId;<br>
+	this.employeeName = employeeName;<br>
+	this.joiningDay = joiningDay;<br>
+}<br>
+<br>
+As joining day is a string I can pass any string value to it, but i need to restrict the input to only week days<br>
+using an enum you can make the user enter or pass only a fixed set of input(like only the days of a week for the above joiningDay)<br>
+<br>
+Ex: PaymentType can take input only as Master Card, Visa, Discover, Amex<br>
+<br>
+enums can be associated with some values<br>
+<hr size="2" COLOR="purple">
+boxing, unboxing<br>
+<br>
+int x = 5;<br>
+list.add(x); // Boxing : list can store only objects, so the primitive variable x value will be converted into object before storing in the<br> collection object list<br>
+Integer y = 6; // Boxing : converting the primitive value to object<br>
+<br>
+int i = new Integer(8) // Unboxing : assigning Object to primitive data type<br>
+<br>
+<hr size="2" COLOR="purple">
+annotations<br>
+<br>
+Annotations convey some informative message to jvm<br>
+@override<br>
+@deprecated<br>
+@SuppressWarnings<br>
+<br>
+How do we create our own annotations<br>
+<br>
+<hr size="2" COLOR="purple">
+Collections<br>
+<br>
+expanding the size of the Array is not very easy, in the same way shrinking the size of an array is not feasible<br>
+Also sorting a array is not feasible<br>
+<br>
+<hr size="2" COLOR="purple">
+Generics<br>
+<br>
+<hr size="2" COLOR="purple">
+Database<br>
+<br>
+Ex: Oracle, MySql, SqlServer, DB2<br>
+clents for databases : TOAD, SQLDeveloper, MySqlWorBench<br>
+<br>
+Each and every data base has their own jar files used for connecting to data base<br>
+<br>
+There are 4 types of drivers we have<br>
+<br>
+The manifest files contains the file name with main method<br>
+<br>
+<hr size="2" COLOR="purple">
+<br>
+AnyThing dealing with data in the tables are DML statements<br>
+select, insert, update, delete<br>
+<br>
+Anything dealing with tables(or structure) are DDL statements<br>
+Creating or altering or droping -- databases, tables , indexes<br>
+<hr size="2" COLOR="purple">
+select * from....<br>
+insert into ...<br>
+update table set...<br>
+delete from table..<br>
+truncate<br>
+drop<br>
+<br>
+Inner join, left join , right join<br>
+<br>
+UNION :used to join the out put of two queries <br>
+I want to get all the employee's id's whose id  > 10 and (id < 10 and salary > 5000) <br>
+1st query id > 10<br>
+2nd query (id < 10 and salary > 5000)  <br>
+since we cannot write the two queries in one shot we will use union to join the result of 2 queries<br>
+<br>
+UNION ALL:<br>
+<br>
+UNION will give me only unique results <br>
+Union All will exclude the duplicates<br>
+<br>
+<hr size="2" COLOR="purple">
+Performance<br>
+<br>
+Database is file system, and when we try to search in it, it will take some time for executing<br>
+If the data is huge it might take more time<br>
+<br>
+So to improve the performance we can create indexes<br>
+indexes can be<br>
+1)clustered or<br>
+2)non clustered<br>
+<br>
+clustered index stores the order in which you store your data<br>
+In a table there can be only one column which can be named as a clustered index<br>
+All the data that you try to store in that table will be orderd based on that column only<br>
+<br>
+will doing this index help us in improving the performance ??<br>
+for example you have thousands of records and you are trying to search based on some different fields lke age and salary doing a full table scan<br> will be slow<br>
+since you are not searching based on the index column the search might not be faster<br>
+<br>
+lets look into nonclustered index<br>
+unlike clustered index, in non clustered index we can have multiple columns which can act as indexes<br>
+but how will it solve the problem??<br>
+will it avoid a full table scan??<br>
+So in this nonclustered scenario there will eb a new table created for index purpose. here it will have all the data and information which will tel<br> the memory reference<br>
+The memory reference will point to the actual table and also our required columns like age and salary will be placed here in group by and also in<br> sorted order<br>
+So our newely created table will look like memorylocation column, age column, salary column<br>
+<br>
+But one more issue is even if there are more number of index columns, it will hit the performance since every time you change a record the idex<br> table needs to be reordered<br>
+<br>
+what are the best things you think of while applying non clustered indexes<br>
+Ex : In DML perspective when you are trying to do a look up on a table, you are trying to search based on certain criteria, so create indexes based<br> on your where clause criteria<br>
+     Also consider group by<br>
+     Also joins<br>
+<br>
+<hr size="2" COLOR="purple">
+VIEWS<br>
+<br>
+these are logical tables where we can make sure that view can contain certain set of data only from the original table <br>
+If data in theoriginal table changes hen the view also changes<br>
+<br>
+what will be the size of the view if the original table size is 1GB?<br>
+its gonna be few kb's. since view is a logical representation only<br>
+<br>
+
+<br>
+<hr size="2" COLOR="purple">
+Core java : we write stand alone java applications and can generate jar files<br>
+J2EE applications are web applications : we can generate war and ear files for this<br>
+<br>
+jar -- contains .class files<br>
+war -- contains multiple jar files<br>
+ear -- contains jar and war files<br>
+<br>
+A web server can understand war file ex: tomcat<br>
+An application server can understand war and ear files<br>
+<br>
+<hr size="2" COLOR="purple">
+<br>
+Data is stored in RAM which contains space for your OS, and Heap and Stack<br>
+</td></tr>
+	</table>
+</body>
+
+</html>
