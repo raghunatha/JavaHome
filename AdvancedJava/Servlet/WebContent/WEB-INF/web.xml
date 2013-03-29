@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>Servlet</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
+	<context-param>
+		<param-name>contextParam</param-name>
+		<param-value>username and password</param-value>
+	</context-param>
+
+	<!-- Begin - Login Servlet -->
+	<servlet>
+		<description>LoginPage - html to servlet</description>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>com.java.login.LoginServlet</servlet-class>
+		<init-param>
+			<description>Stores the author name</description>
+			<param-name>author</param-name>
+			<param-value>raghu</param-value>
+		</init-param>
+		<init-param>
+			<description>Store the current location</description>
+			<param-name>place</param-name>
+			<param-value>dallas</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/pages/login</url-pattern>
+	</servlet-mapping>
+	<!--End - Login Servlet -->
+
+	<!--Begin - Simple Login Servlet -->
+	<servlet>
+		<description>LoginPage - html to servlet to html</description>
+		<servlet-name>SimpleLoginServlet</servlet-name>
+		<servlet-class>com.java.simpleLogin.LoginServlet</servlet-class>
+		<init-param>
+			<description>Stores the author name</description>
+			<param-name>author</param-name>
+			<param-value>naveen</param-value>
+		</init-param>
+		<init-param>
+			<description>Store the current location</description>
+			<param-name>place</param-name>
+			<param-value>columbus</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>SimpleLoginServlet</servlet-name>
+		<url-pattern>/pages/simpleLogin</url-pattern>
+	</servlet-mapping>
+	<!--End - Simple Login Servlet -->
+
+	<!--Begin - Simple Login Servlet -->
+	<servlet>
+		<description>LoginPage - html to servlet to jsp</description>
+		<servlet-name>JspLoginServlet</servlet-name>
+		<servlet-class>com.java.jspLogin.LoginServlet</servlet-class>
+		<init-param>
+			<description>Stores the author name</description>
+			<param-name>author</param-name>
+			<param-value>prasad</param-value>
+		</init-param>
+		<init-param>
+			<description>Store the current location</description>
+			<param-name>place</param-name>
+			<param-value>newyork</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>JspLoginServlet</servlet-name>
+		<url-pattern>/pages/jspLogin</url-pattern>
+	</servlet-mapping>
+	<!--End - Simple Login Servlet -->
+
+	<!--Begin - Session Servlet -->
+	<servlet>
+		<display-name>AccessTime</display-name>
+		<servlet-name>AccessTime</servlet-name>
+		<servlet-class>com.java.servlets.AccessTime</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AccessTime</servlet-name>
+		<url-pattern>/AccessTime</url-pattern>
+	</servlet-mapping>
+	<!--Begin - Session Servlet -->
+
+</web-app>
