@@ -8,7 +8,6 @@ import java.sql.Statement;
 
 public class JdbcInsert {
 	public static void main(String[] args) {
-		Connection con = null;
 		String url = "jdbc:mysql://localhost:3306/";
 		String db = "Athena";
 		String driver = "com.mysql.jdbc.Driver";
@@ -50,8 +49,8 @@ public class JdbcInsert {
 			con = DriverManager.getConnection(url + db, "root", "password");
 			try {
 				Statement stmt = con.createStatement();
-				int val = stmt.executeUpdate("INSERT EMPLOYEE VALUES(" + 3 + "," + "'Prasad'" + ")");
-				System.out.println("1 row affected");
+				int val = stmt.executeUpdate("INSERT EMPLOYEE VALUES(3, 'Prasad')");
+				System.out.println(val + "rows affected");
 			} catch (SQLException s) {
 				System.out.println("SQL statement is not executed!");
 			}
