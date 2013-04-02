@@ -1,0 +1,68 @@
+JSP
+Java Server Pages are a powerful way to create server-side web applications
+A jsp page contains HTML code and jsp tags
+
+Advantages of jsp over servlets
+	i) jsp is the extenion of servlet technology
+	ii) seperating business logic with presentation logic
+	iii) jsp page is implicitly compiled to servlet class and loaded in to memory
+		a) when the page is rquested for the first time after creation, or
+		b) when the page is requested for the first time after modification.
+
+The web server needs a JSP engine ie. container to process JSP pages. The JSP container is responsible for intercepting requests for JSP pages.
+A JSP container works with the Web server to provide the runtime environment and other services a JSP needs. 
+It knows how to understand the special elements that are part of JSPs
+
+JSP life Cycle
+	i) Page Translation :-Here the jsp page is parsed and converted to a java file that contains the corresponding servlet.
+	ii) Page Compilation :- Here the servlet page that is created after translation is compiled to a class file.
+	iii) Load class :- The compiled class is loaded in to the container.
+	iv) Instance Creation :- The container manages one or more instances of the loaded class in	response to the requests.
+	v) jspInit Method :- The initialization method gets called before any other methods. It is called only once during jsp life cycle.
+	vi) _jspService :- The method gets called for each request of this jsp during its life cycle.
+	vii) jspDestroy :- The method gets called when the ServletContainer decided to take the servlet out of service.
+	
+jsp Comments:
+	<!-- This is a jsp comment -->
+	
+Scripting Elements: java code can be written inside the jsp page using the scriptlet tag.
+	i) scriptlet tag : <% %> : used to execute java source code
+		<%
+			String name = request.getParameter("uname");
+			out.print("Welcome " + name);
+		%>
+		
+	ii) Declaration tag : <%!  %> : used to define variables and methods in JSP
+		<%!
+			int count;
+
+			public int cube(int arg) {
+			return arg * arg * arg;
+			}
+		%>
+
+	iii) Expression tag : <%=  %> : used to print out a value or an expression 
+		<%="Welcome " + request.getParameter("uname")%>
+		<%= "The value of count is : " + count %>
+		<%= "Cube of 3 is : " + cube(3) %>
+		
+jsp Directives:	when used affects the overall structure of the servlet class : <%@ directive attribute ="value" %>
+	i) jsp page directive: Defines page dependent attributes
+		<%@ page attribute="value"%>
+		<%@ page import="java.util.Date"%>
+		
+	ii) jsp include directive: used to include the content of other resource into the current JSP page :<%@include file="relativeURL" %>
+			a) If the relativeURL starts with the forward slash, it is interpreted as relative to the context of the application [context specific path], 
+				otherwise it is interpreted as relative to the current JSP file.
+			b) Inclusion happens at compilation time
+			c) What is included is the source, not generated result
+	
+	iii) jsp taglib directive	
+			
+			
+			
+http://appus.wordpress.com/2008/05/29/
+http://www.tutorialspoint.com/jsp/jsp_exception_handling.htm			
+http://www.servletworld.com/jsp-tutorials/jsp-include-directive.html
+http://www.roseindia.net/jsp/IncludeDir_Example.shtml
+	

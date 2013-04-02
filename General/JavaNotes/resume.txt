@@ -1,0 +1,723 @@
+
+My role is that of a senior software engineer. Most part of job responsibilities involves coding and related actvities
+
+=============================================================================================
+JNDI : is used for service location lookup
+ If you configure each app server to use the same JNDI name, you can have different databases in each environment and not have to change your code.
+ You just pick up the WAR file and drop it in the new environment
+ 
+=============================================================================================		
+EJB:
+Types of EJB's
+i) Session beans
+	a) stateless session bean
+	b) statefull session bean	
+
+ii) Entity beans
+
+iii) Message driven beans	
+ 
+============================================================================================= 
+JMS:
+
+============================================================================================= 
+**********
+DATABASE
+**********
+SQL Injection:
+http://www.imperva.com/resources/glossary/sql_injection.html
+SQL injection is a code injection technique that exploits a security vulnerability in a website's software
+In SQl Injection the attacker injects a malicious sql that are designed to be executed with normal sql statements.
+Because of this the hacker can bypass the authatication and authorization in a web site and can view the database records.
+Use place holder like ? or by using :name --> called named placeholder
+for ? set the values as query.setInteger(position, value);
+for :name set the value as query.setInteger(placeholdername, value); --> javabrains hibernate tutorial 27
+=============================================================================================
+VIEW:
+A view is a virtual table that consists of columns from one or more tables.
+http://stackoverflow.com/questions/2944597/what-is-the-use-of-view-in-sql-server
+
+INDEX:
+http://odetocode.com/code/237.aspx
+http://stackoverflow.com/questions/1108/how-does-database-indexing-work
+
+=============================================================================================
+LAZY LOADING:
+Lazy loading is a design pattern commonly used in computer programming to defer initialization of an object until the point at which it is needed. 
+It can contribute to efficiency in the program's operation if properly and appropriately used
+
+=============================================================================================
+Difference Between Delete, Trunceate, Drop
+i) Delete: Data alone deleted, Doesn't perform automatic commit	.
+ii) Truncating: Data alone deleted, Performs an auto commit. Faster than Delete.
+iii) Dropping: Table Structure and Data are deleted.
+
+=============================================================================================
+HAVING:
+Having clause is used only with group functions
+Ex: SELECT Customer,SUM(OrderPrice) FROM Orders GROUP BY Customer HAVING SUM(OrderPrice)<2000
+
+=============================================================================================
+COUNT:
+SELECT COUNT(column_name) FROM table_name --> null values not counted
+SELECT COUNT(*) FROM table_name --> null values are counted
+SELECT COUNT(DISTINCT column_name) FROM table_name --> number of distinct values of the specified column
+
+=============================================================================================
+PRIMARY Key & UNIQUE Key Differences
+Both primary key and unique enforce uniqueness of the column on which they are defined
+primary key doesn't allow NULLs, but unique key allows one NULL only.
+
+=============================================================================================
+JOINS:
+SQL joins are used to query data from two or more tables, based on a relationship between certain columns in these tables.
+LEFT JOIN:
+The LEFT JOIN keyword returns all rows from the left table (table_name1), even if there are no matches in the right table (table_name2)
+	Ex: SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo FROM Persons LEFT JOIN Orders ON Persons.P_Id=Orders.P_Id ORDER BY Persons.LastName
+RIGHT JOIN:
+The RIGHT JOIN keyword returns all the rows from the right table (table_name2), even if there are no matches in the left table (table_name1).
+	Ex: SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo FROM Persons RIGHT JOIN Orders ON Persons.P_Id=Orders.P_Id ORDER BY Persons.LastName
+
+=============================================================================================
+Difference Between Where clause and on clause
+
+SELECT *
+FROM Orders
+LEFT JOIN OrderLines ON OrderLines.OrderID=Orders.ID
+WHERE Orders.ID = 12345
+
+
+SELECT *
+FROM Orders
+LEFT JOIN OrderLines ON OrderLines.OrderID=Orders.ID AND Orders.ID=12345
+
+The first will return an order and it's lines (if any) order number is 12345. 
+The second will return all orders, but only order 12345 will have any OrderLines associated with it(except for order 12345 all orders will have null for OrderLine records).	
+	
+=============================================================================================
+In general, to process any SQL statement with JDBC, you follow these steps:
+i) Establishing a connection.
+ii) Create a statement.
+iii) Execute the query.
+iv) Process the ResultSet object.
+v) Close the connection.
+
+=============================================================================================
+STATEMENT:
+The Statement interface lets you execute a simple SQL statement with no parameters.
+The SQL instructions are inserted into the Statement object when the Statement.executeXXX method is called.
+
+=============================================================================================
+RESULTSET:
+The ResultSet interface manages access to data returned from a query. 
+The data returned equals one row in a database table. 
+Some queries return one row of data while many queries return multiple rows of data
+	Ex: ResultSet results = stmt.executeQuery("SELECT * FROM Employee ");
+	Ex: String updateString = "INSERT INTO dba VALUES (some text)";
+		int count = stmt.executeUpdate(updateString);
+		
+		while (resultSet.next()) {
+			// Printing results to the console
+			System.out.println("Roll No- " + resultSet.getInt("RollNo")
+							+ ", Name- " + resultSet.getString("Name")
+							+ ", Course- " + resultSet.getString("Course")
+							+ ", Address- " + resultSet.getString("Address"));
+		}
+		
+		Updating rows in result set
+		while (resultSet.next()) {
+            float f = resultSet.getFloat("PRICE");
+            resultSet.updateFloat( "PRICE", f * percentage);
+            resultSet.updateRow();
+        }
+
+=============================================================================================
+PREPARED STATEMENT:
+The PreparedStatement interface descends from the Statement interface and uses a template to create a SQL request. 
+Use a PreparedStatement to send precompiled SQL statements with one or more parameters.
+Use a PreparedStatement to send precompiled SQL statements with one or more parameters.
+	Ex: PreparedStatement pstmt = con.prepareStatement( select userName from registration where emailaddress like ?");
+		//Initialize first parameter with email address
+		pstmt.setString(1, emailAddress);
+		ResultSet results = ps.executeQuery();
+	Ex: PreparedStatement ps = con.prepareStatement( "insert into registration(userName, password, emailaddress, creditcard, balance) values (?, ?, ?, ?, ?)");
+		ps.setString(1, theuser);
+		ps.setString(2, password);
+		ps.setString(3, emailaddress);
+		ps.setString(4, creditcard);
+		ps.setDouble(5, balance);
+		ps.executeUpdate();			
+Once the PreparedStatement template is initialized, only the changed values are inserted for each call.
+		
+=============================================================================================	
+CALLABLE STATEMENT:
+CallableStatement cs = con.prepareCall("{call accountlogin(?,?,?,?)}");
+  cs.setString(1,theuser); --> IN parameter
+  cs.setString(2,password); --> IN parameter
+  cs.registerOutParameter(3,Types.DATE); --> Registering OUT parameter
+  cstmt.registerOutParameter(1, java.sql.Types.VARCHAR); --> Registering INOUT parameter
+  cstmt.setString(4, usercity); --> setting value to INOUT parameter
+
+  cs.executeQuery();
+  Date lastLogin = cs.getDate(3);
+  String cityCode = cs.getString(4);
+
+http://docs.oracle.com/javase/tutorial/jdbc/basics/storedprocedures.html
+
+http://www.mkyong.com/jdbc/jdbc-callablestatement-stored-procedure-in-parameter-example/
+http://www.mkyong.com/jdbc/jdbc-callablestatement-stored-procedure-out-parameter-example/
+
+For stored procedure returns OUT parameters, it must be
+	i) Registered via JDBC CallableStatement.registerOutParameter(index,sqlType).
+	ii) Get it back via CallableStatement.getDataType(index).
+
+=============================================================================================	
+JDBC BATCH UPDATES:
+http://publib.boulder.ibm.com/infocenter/iseries/v7r1m0/index.jsp?topic=%2Frzaha%2Fcallable.htm	
+
+=============================================================================================	
+Calling STORED PROCEDURE in HIBERNATE
+http://www.mkyong.com/hibernate/how-to-call-store-procedure-in-hibernate/
+
+DELIMITER $$
+ 
+CREATE PROCEDURE `GetStocks`(int_stockcode VARCHAR(20))
+BEGIN
+   SELECT * FROM stock WHERE stock_code = int_stockcode;
+   END $$
+ 
+DELIMITER ;
+
+CALL GetStocks('7277');
+
+Query query = session.createSQLQuery(
+	"CALL GetStocks(:stockCode)")
+	.addEntity(Stock.class)
+	.setParameter("stockCode", "7277");
+ 
+List result = query.list();
+for(int i=0; i<result.size(); i++){
+	Stock stock = (Stock)result.get(i);
+	System.out.println(stock.getStockCode());
+}
+
+=============================================================================================
+HIBERNATE dynamic-insert
+
+The dynamic-insert attribute tells Hibernate whether to include null properties in the SQL INSERT statement
+	i) The default value of dynamic-insert is false, which means include null properties in the Hibernate’s SQL INSERT statement.
+	ii) If set the dynamic-insert to true, which means exclude null property values in the Hibernate’s SQL INSERT statement.
+Ex: <class ... table="stock_transaction" catalog="mkyong" dynamic-insert="true">
+
+=============================================================================================
+HIBERNATE dynamic-update
+
+The dynamic-update attribute tells Hibernate whether to include unmodified properties in the SQL UPDATE statement.	
+	i) The default value of dynamic-update is false, which means include unmodified properties in the Hibernate’s SQL update statement.
+	ii) If set the dynamic-insert to true, which means exclude unmodified properties in the Hibernate’s SQL update statement
+Ex: <class ... table="stock_transaction" catalog="mkyong" dynamic-update="true">	
+
+============================================================================================
+TRANSACTION:
+Its a series of operations we wish to carry out against the database
+
+=============================================================================================
+SELECTBEFOREUPDATE:
+selectbeforeupdate=true
+This hibernate property does a select before updating the record to the db.(It fires a select query and checks with the existing record, it fires an update only if both the records differ)
+
+=============================================================================================
+Single Table Inheritance Strategy : Creating one common table for all the tables (parent and sub classes) --> javabrains hibernates tutorial 17
+Discriminator column will be generated in the above column which differentiates the parent class from the child classes
+
+One more inheritance hirarchy is: can be table per class also.
+The properties inherited from the parent class will be duplicated in the child tables also.
+In table per class hirearchy a discriminator is not required
+
+One more inheritance hirarchy is: can be JOIN class strategy.
+All the parent columns will be stored in parent and only the child columns will be present in the child table	
+
+=============================================================================================
+**********
+SERVERS
+**********
+Difference between Jboss and weblogic server
+i) jboss server is faster, it internally contains tomcat for web server and its own application server
+ii) When web server only is used in jboss the performance is higher
+iii) weblogic, the application server is heavy and when it runs it need to run all the related components
+iv) weblogic's web based administrative console can be used for the configuration of JMS, Data source, security settings and so on. UI is not given in Jboss
+v) web logic is expensive, jboss is free. 
+
+=============================================================================================
+Memory management in java
+http://www.oracle.com/technetwork/java/javase/memorymanagement-whitepaper-150215.pdf
+http://www.capitalware.biz/dl/docs/WhitePaperJavaCodingPractices.pdf
+http://javarevisited.blogspot.com/2010/10/improving-performance-of-application-in.html
+jprobe - http://www.youtube.com/watch?v=WrZzBXxE218&feature=relmfu
+
+JAVA HEAP SPACE:
+This indicates that an object cannot be allocated in the heap.
+The issue may be just a configuration problem.
+One more reason could be the excessive use of finalizers by the application.
+jconsole management tool can be used to monitor the number of objects that are pending finalization.
+maximum heap size specified by the  –Xmx
+ 
+PERMGEN SPACE:
+This the area of the heap where jvm stores its meta data
+If an application loads more no of classes, then the permanent generation may need to be increased. 
+–XX:MaxPermSize=n
+
+REQUESTED ARRAY SIZE EXCEEDS VM LIMIT:
+When app attempts to allocate an array that is larger than the heap size.
+Caused by either the heap size is too small or a bug in calculating the array intial size incorrectly
+
+Use stringbuffer in place of string if you are doing lots of string manipulation it will reduce memory by avoiding creating lots of string garbage.
+Every time a string is modified a new string object is created(since strings are immutable). This is an overhead to GC.
+Using a string buffer, the intermediate objects are not created requesting less GC. 	
+
+try to make variable , class , method final whenever possible that’s allow compiler to do lots of optimization e.g. compile time binding so you will get faster output.
+Objects with final fields can be passed from one thread to another with out synchronization. It helps robust software design.
+Accessing a final member can be slightly faster than accessing a non-final member. Member variables can be declared final, unless there is a compellin reason for not doing it.	
+
+static methods are binded at compile time while non static methods are resolved at runtime based on object type so static method will be faster than non static.
+
+Use ternary operator when possible, where if else can be used 
+
+don't call methods in for loop for checking condition e.g. length() size() etc. instead of doing this , use modified version
+for(int i=0; i<vector.size();i++)
+
+int size = vector.size(); 
+for(int i=0; i<size;i++)
+
+Use minimum amount of synchronization for improving the performance. 
+Synchronization causes the overhead of managing the locks on the resources by JVM
+
+Use lazy-loading of dependent objects
+
+OutputStream can be faster than PrintWriter.
+
+Use stateless session EJBs to cache and manage infrequently changed data. Update the EJB occasionally.
+
+Use a dedicated session bean to perform and cache all JNDI lookups in a minimum number of requests.
+
+=============================================================================================
+**********
+CORE JAVA
+**********
+THREADS:
+Two ways to create a new Thread of execution
+i) Declare a class to be subclass of Thread Class, and the sub class should override the run method of the Thread class.
+	Ex: SubThreadClass t1 = new SubThreadClass();
+		t1.start();
+ii) Declare a class that implements the runnable interface, then implement the run method		
+	Ex: SubThreadClass t2 = new SubThreadClass();
+		new Thread(t2).start();
+
+wait() --> will wait for specified amount of time, can come out of this state in between if notify() or notifyAll() is called
+sleep() --> must wait for specfied amount of time.
+yield() --> a running thread goes back to runnable state, yielding(giving way) for other thread to run
+join() --> allows current thread to wait indefinetly until thread "t" is finished (Doubt) can a notify command break the waiting thread?
+
+Deamon Threads: Also called as background threads. Example GC		
+
+SYNCHRONIZATION: 
+The process of protecting resources in a multithreaded environment
+With out Synchronization it is possible for one thread to modify a shared object while another thread is in the process of usng or updating the objects value,
+This often causes dirty data. But synchronization can cause deadlock when 2 threads are waiting on each other for some shared resources.
+
+Collections.SynchronizedList(myList); --> single lock for entire list
+
+CopyOnWriteArrayList gives thread safety and immutability, so list can be used with out synchronization
+
+=============================================================================================
+CLASS LOADERS:
+Used for loading classes in java.
+Class loader follows a delegation model i.e they request their parents to load the class(till the top level is reached) and if that does not happen
+ it itself tries to load the class
+Classes which a re loaded by a class loader are not visible to its parents or siblings but only to the child.
+This is how java manages namespace conflicts if multiple applications are loaded in the same instance of the application server 
+
+=============================================================================================
+JAVA RUNTIME POLYMORPHISM:
+Method overriding is one of the good examples of run time polymorphism in java.
+With method overriding methods are bound to object instances during run time.
+
+=============================================================================================
+SERIALIZATION:
+Process by which objects are converted into a stream of bytes.(Class Instance will be serialized)
+A Static variable in java cannot be serialized.
+A transient variable in a class instance cannot be serialized.
+
+=============================================================================================
+STATIC IMPORTS:
+The Static import construct allows unqualified access to static members
+
+double r = Math.cos(Math.PI * theta);
+
+import static java.lang.System.out;
+import static java.lang.Math.PI;
+import static java.lang.Math.cos;
+...
+double r = cos(PI * theta);
+out.println("Blah blah blah");
+
+=============================================================================================
+ACCESSMODIFIERS
+
+=============================================================================================
+NESTED CLASSES
+
+=============================================================================================
+WRAPPER CLASSES:
+Wrapper Classes are classes that allow primitive types to be accessed as objects
+
+=============================================================================================
+MAP:
+http://www.coderanch.com/t/498399/java/java/Code-store-null-keys-null
+HashMap, HashTable
+Hashtable is synchronized, whereas HashMap is not.
+Hashtable does not allow null keys or values. HashMap allows one null key and any number of null values
+
+	Map map=new HashMap(); 
+    map.put(null, "raghu"); //storing null key is allowed in hash map
+	map.put(1, null); //storing null value is allowed in hash map
+    System.out.println(map.get(null));
+    
+    Map map1=new Hashtable(); 
+    map1.put(null, "ramu"); //storing null key will cause an exception
+	map1.put(1, null); //storing null value is not allowed
+    System.out.println(map1.get(null));
+    
+    Map map2 = new HashMap();  
+    map2.put(null, "bob");  
+    map2.put(null, "jerry");  
+    map2.put(null, "kily");  
+          
+    System.out.println(map2.size());
+
+=============================================================================================
+SET:
+Set cannot contain duplicate elements
+HashSet contains null values
+TreeSet cannot contain null values
+	
+=============================================================================================
+FINAL:
+A final class cannot have subclasses
+A final variable cannot be chnaged once it is initialized
+A final method cannot be overridden
+
+A final method can be overloaded
+
+=============================================================================================
+EXCEPTIONS:
+Checked Exceptions: These are checked at compilation time by the java compiler Ex: IOException, SQLException, MalformedURLException
+UnChecked Exceptions: These are checked by the JVM Ex:ArrayIndexOutOfBounds
+
+Throwable
+	i) Error
+	ii) Exception
+		a)Runtime Exception
+		b)Compiletime Exception
+
+=============================================================================================
+GC:
+Garbage collector can be called explicitly by using the command System.gc();
+
+=============================================================================================
+Finally:
+
+In which scenario a finally block will not be called ? 
+Ans: when we call System.exit(0); --> as this method terminates the JVM
+
+=============================================================================================
+SYNCHRONIZED
+
+A class cannot be synchronized 
+
+Synchronized methods are used when we are sure all instance will work on the same set of data through the same function 
+Synchronized block is used when we use code which we cannot modify ourselves like third party jars etc
+
+For a detail clarification see the below code
+
+for example:
+//Synchronized block
+
+class A
+{ public void method1() {...} }
+class B
+{
+public static void main(String s[])
+{ A objecta=new A();
+A objectb=new A();
+synchronized(objecta){objecta.method1();}
+objectb.method1(); //not synchronized
+}
+}
+
+
+//synchronized method
+class A
+{ public synchronized void method1() { ...}
+}
+class B
+{
+public static void main(String s[])
+{
+A objecta=new A();
+A objectb =new A();
+objecta.method1(); objectb.method2();
+
+}
+}
+
+http://javarevisited.blogspot.com/2011/04/synchronization-in-java-synchronized.html
+http://www.coderanch.com/t/561358/threads/java/differences-synchronized-blocks-synchronized-method
+http://www.coderanch.com/t/520757/java-programmer-SCJP/certification/Synchronized-Block-Synchronized-method
+
+=============================================================================================
+THREADS
+http://docs.oracle.com/javase/tutorial/essential/concurrency/interfere.html
+http://www.codestyle.org/java/faq-Threads.shtml
+
+First, it is not possible for two invocations of synchronized methods on the same object to interleave. 
+When one thread is executing a synchronized method for an object, all other threads that invoke synchronized methods for 
+the same object block (suspend execution) until the first thread is done with the object.
+
+Second, when a synchronized method exits, it automatically establishes a happens-before relationship with any subsequent 
+invocation of a synchronized method for the same object. This guarantees that changes to the state of the object are visible to all threads
+
+=============================================================================================
+toString()
+
+The main purpose of toString is to generate a String representation of an object, means the return value is always a String. 
+In most cases this simply is the object's class and package name.
+
+=============================================================================================
+REFLECTION
+
+Java's Reflection API's makes it possible to inspect classes, interfaces, fields and methods at runtime, without knowing the names of the classes, methods etc. at compile time
+
+Class aClass = MyObject.class
+String className = aClass.getName();
+Package package = aClass.getPackage();
+
+The methods Class.getField(String name) and Class.getFields() methods only return public fields
+To access a private field you will need to call the Class.getDeclaredField(String name) or Class.getDeclaredFields() method
+
+ The methods Class.getMethod(String name, Class[] parameterTypes) and Class.getMethods() methods only return public methods
+ To access a private method you will need to call the Class.getDeclaredMethod(String name, Class[] parameterTypes) or Class.getDeclaredMethods() method
+
+http://tutorials.jenkov.com/java-reflection/private-fields-and-methods.html
+
+=============================================================================================
+Making Class immutable
+
+making the constructor alone private will not make immutable, since this class can be sub classed and methods can be overridden
+Make the class Final
+
+=============================================================================================
+Can a reference be passed across JVM's? 
+No. An object reference is valid only within the JVM.
+
+=============================================================================================
+How do you compare objects of String and StringBuffer?
+	StringBuffer sb= new StringBuffer("Hello");
+    String s= "Hello";
+    System.out.println(s.equals(sb.toString())); // Prints true
+
+StringBuffer sb1 = new StringBuffer("Java");
+StringBuffer sb2 = new StringBuffer("Java");
+System.out.println(sb1 == sb2); --> false
+System.out.println(sb1.equals(sb2)); --> false
+
+The equals method of StringBuffer is not overridden from Object, so it is just reference equality, i.e., the same as using ==. 
+I suspect the reason for this is that StringBuffer is modifiable, and overriding equals is mostly useful for value-like classes 
+that you might want to use as keys (though lists also have an overridden equals and StringBuffer is kind of a list, so this is a bit inconsistent).
+
+********
+SERVLETS
+********
+Servlets in java are not thread safe(though they could be made threadsafe by implementing singleThreadModel
+So that would mean that if there are multiple concurrent requests to the same servlet it would be served by the same instance.
+
+=============================================================================================
+************
+WEB SERVICES
+************
+http://theopentutorials.com/tutorials/web-services/web-services-platform/
+
+XML NAMESPACE:
+XML namespaces are used for providing uniquely named elements and attributes in an XML document
+XML Namespaces provide a method to avoid element name conflicts.
+The namespace is defined by the xmlns attribute in the start tag of an element
+The namespace declaration has the following syntax. xmlns:prefix="URI"
+	Ex: xmlns:h="http://www.w3.org/TR/html4/"		
+The most common URI is the Uniform Resource Locator (URL) which identifies an Internet domain address	
+
+=============================================================================================
+XSLT: 
+EXtensible Stylesheet Language Transformations
+XSLT is an XML language that can be used to transform XML documents into other formats, like HTML
+
+=============================================================================================
+XPath:
+A language for navigating in XML documents 	
+XPath is a language for finding information in an XML document.
+
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<bookstore>
+  <book>
+    <title lang="en">Harry Potter</title>
+    <author>J K. Rowling</author>
+    <year>2005</year>
+    <price>29.99</price>
+  </book>
+</bookstore>
+
+<bookstore> (root element node)
+<author>J K. Rowling</author> (element node)
+lang="en" (attribute node)
+
+=============================================================================================
+Why web-services?
+Web-services are based on service oriented architecture. They are platform independent. 
+Web-services make the application highly loose coupled - for example a J2EE application can communicate with a .NET application with little effort and without any great hiccups
+
+=============================================================================================
+Can you explain under what circumstances you avoided using XML for data exchange?
+I worked on a banking application which had a suite of in-built applications which were built on the J2EE architecture platform. 
+And we had general wrapper value objects which could be used across applications. 
+There it did not make sense to convert the value object to XML just for the sake of using XML.
+
+=============================================================================================
+******
+SPRING
+******
+http://www.javabeat.net/2009/02/spring-framework-interview-questions/
+http://www.javabeat.net/2007/10/integrating-spring-framework-with-hibernate-orm-framework/
+http://www.javabeat.net/2007/06/introduction-to-spring-mvc-web-framework-web-tier/
+
+LIFE CYCLE MANAGEMENT
+http://www.javabeat.net/2007/10/life-cycle-management-of-a-spring-bean/
+
+=============================================================================================
+READING THE BEAN CONFIG FILE
+
+ApplicationContext context = WebApplicationContextUtils.getRequiredWebApplicationContext(getServlet().getServletContext());
+ApplicationContext context = new ClassPathXmlApplicationContext("com/spring/hibernate/spring-hibernate.xml");
+SpringHibernateUserDAO dao = (SpringHibernateUserDAO)context.getBean("springHibernateDAO");
+		
+=============================================================================================
+SPRING- SINGLETON		
+Singleton scope in Spring means that this bean will be instantiated only once by Spring. 
+In contrast to the prototype scope (new instance each time), 
+request scope (once per request), 
+session scope (once per HTTP session).
+
+Singleton scope has technically noting to do with the singleton design pattern. 
+You don't need to implement your beans as singletons for them to be put in the singleton scope.
+
+In singleton, only a single instance per Spring IoC container, no matter how many times you retrieve it with getBean(), 
+it will always return the same instance.
+
+=============================================================================================
+DEPENDENCY CHECKING
+
+none – No dependency checking.
+simple – If any properties of primitive type (int, long,double…) and collection types (map, list..) have not been set, UnsatisfiedDependencyException will be thrown.
+objects – If any properties of object type have not been set, UnsatisfiedDependencyException will be thrown.
+all – If any properties of any type have not been set, an UnsatisfiedDependencyException
+will be thrown.
+
+Try @Required annotation, it is more flexible than dependency checking in XML file, because it can apply to a particular property only.
+
+=============================================================================================
+INITIALIZATION  BEAN & DISPOSABLE BEAN:
+InitializingBean and DisposableBean are two marker interfaces, a useful way for Spring to perform certain actions upon bean initialization and destruction
+
+	i) For bean implemented InitializingBean, it will run afterPropertiesSet() after all bean properties have been set.
+	ii) For bean implemented DisposableBean, it will run destroy() after Spring container is released the bean.
+	
+=============================================================================================
+INIT & DESTROY Methods
+
+In Spring, you can use init-method and destroy-method as attribute in bean configuration file for bean to perform certain actions upon initialization and destruction. 
+Alternative to InitializingBean and DisposableBean interface
+
+It’s always recommended to use init-method and destroy-method in bean configuration file, 
+instead of implement the InitializingBean and DisposableBean interface to cause unnecessarily coupled your code to Spring.
+
+<bean id="customerBean" class="com.spring.Customer" 
+		init-method="initIt" destroy-method="cleanUp"> 
+		<property name="message" value="i'm property message" />
+</bean>
+
+=============================================================================================
+AUTO WIRING BEANS:
+Wiring is the process of establishing linkage between two components and it is the responsibility of the developer to make this association to happen. 
+Auto-wiring is the process of establishing linkage between components with the help of Spring Container without the intervention of developer
+Auto-wiring can be done either by type or by name.
+And if no matching found, just do nothing.
+
+1) no – Default, no auto wiring, set it manually via “ref” attribute
+Ex:- <bean id="customer" class="com.mkyong.common.Customer">
+		<property name="person" ref="person" />
+	 </bean>
+	 
+2) byName – Auto wiring by property name. If the name of a bean is same as the name of other bean property, auto wire it.
+Ex:- <bean id="customer" class="com.mkyong.common.Customer" autowire="byName" />
+
+3) byType – Auto wiring by property data type. If data type of a bean is compatible with the data type of other bean property, auto wire it.
+			What if you have two beans with same data type of a class ? (like 2 bean entries for Address class with different id's)
+			In autowiring by type mode, you just have to make sure only one unique data type of bean is declared.
+Ex:- <bean id="customer" class="com.mkyong.common.Customer" autowire="byType" />
+
+4) constructor – byType mode in constructor argument.
+
+5) autodetect – If a default constructor is found, use “autowired by constructor”; Otherwise, use “autowire by type”.
+
+=============================================================================================
+***************
+DESIGN PATTERNS
+***************
+http://www.corej2eepatterns.com/Patterns2ndEd/TransferObject.htm --> good
+
+Abstracting solutions to recurring design problems
+http://www.freejavaguide.com/java-design-patterns.pdf --> uml printout
+
+http://javapapers.com/design-patterns/facade-design-pattern/
+http://www.allapplabs.com/java_design_patterns/facade_pattern.htm
+
+http://viralpatel.net/blogs/java-singleton-design-pattern-tutorial-example-singleton-j2ee-design-pattern/ --> super
+http://www.javabestpractice.com/java/java-design-pattern/creational-patterns/singleton-pattern.html
+
+=============================================================================================
+************
+JSP VS Tiles
+************
+http://www.mindfiresolutions.com/mindfire/Java_StrutsTiles_JSPInclude.pdf
+http://www.mkyong.com/wp-content/uploads/2010/05/struts-tiles.png
+
+In JSP's if we dont use include tags for common code like Header and Footer, the same code is being repeated across pages. So there is a code repetition.
+Ex: A small change in Header or Footer would need a lot of work as we have to change in all JSP's 
+
+include tag will resolve the above issue. But still the issue with this approach is, you create the layout of the website with in the page and then place the
+actual view Component(JSP). The same layout logic is repeated in every page causing repetition in the web page. So in future if the view needs to be changed
+then you may have lot of pages to modify.
+
+With out Tiles,
+1) Code repetition
+2) No layout control
+3) Coupling
+4) Complexity
+5) High costs for maintaing
+
+"Tiles" is the solution for this problem. Tile is an area or region on the web page. Tiles is a technology which is used to create view of a website.
+Using tiles you can define the layout as a template and it can be used in the application for consistent layout.
+A layout contains palceholders instead of actual view components(JSPs). The values for the place holders are defined by an XML. 
+If you want to change the view of the application you can do so by changing the layout only and can save lot of time
+
+
+=============================================================================================
