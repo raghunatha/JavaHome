@@ -38,6 +38,7 @@ A view is a virtual table that consists of columns from one or more tables.
 http://stackoverflow.com/questions/2944597/what-is-the-use-of-view-in-sql-server
 
 INDEX:
+Index ina database is used for faster retrieval of data.
 http://odetocode.com/code/237.aspx
 http://stackoverflow.com/questions/1108/how-does-database-indexing-work
 
