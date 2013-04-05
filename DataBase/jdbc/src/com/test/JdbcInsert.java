@@ -8,6 +8,7 @@ import java.sql.Statement;
 
 public class JdbcInsert {
 	public static void main(String[] args) {
+		Connection con = null;
 		String url = "jdbc:mysql://localhost:3306/";
 		String db = "Athena";
 		String driver = "com.mysql.jdbc.Driver";
@@ -23,12 +24,13 @@ public class JdbcInsert {
 		      con = DriverManager.getConnection(url+db, "root", "password");
 		      try{
 		        Statement stmt = con.createStatement();
-		        ResultSet res = stmt.executeQuery("SELECT * FROM  EMPLOYEE");
-		        System.out.println("EMP_ID: " + "\t" + "EMP_NAME: ");
+		        ResultSet res = stmt.executeQuery("SELECT * FROM  USER");
+		        System.out.println("USER_ID: " + "\t" + "USER_NAME: " + "\t" + "USER_PASSWORD");
 		        while (res.next()) {
-		          int i = res.getInt("EMP_ID");
-		          String s = res.getString("EMP_NAME");
-		          System.out.println(i + "\t\t" + s);
+		          int id = res.getInt("USER_ID");
+		          String name = res.getString("USER_NAME");
+		          String password = res.getString("USER_PASSWORD");
+		          System.out.println(id + "\t\t" + name + "\t\t" + password);
 		        }
 		        con.close();
 		      }
@@ -49,9 +51,10 @@ public class JdbcInsert {
 			con = DriverManager.getConnection(url + db, "root", "password");
 			try {
 				Statement stmt = con.createStatement();
-				int val = stmt.executeUpdate("INSERT EMPLOYEE VALUES(3, 'Prasad')");
-				System.out.println(val + "rows affected");
+				int val = stmt.executeUpdate("INSERT USER VALUES(1, 'Raghu', 'Secret');");
+				System.out.println("1 row affected");
 			} catch (SQLException s) {
+				s.printStackTrace();
 				System.out.println("SQL statement is not executed!");
 			}
 		} catch (Exception e) {
