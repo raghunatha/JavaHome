@@ -1,0 +1,15 @@
+Difference between redirect and forward
+
+	Servlet redirect and servlet forward both are used to handle the request processing to some other URL/Servlet but there is a big difference in the way it works. The main difference is
+i) Servlet redirect always sends a HTTP status code 303 to client along with the redirect URL.
+	 Client then sends a new request to the URL.Thus response.sendRedirect() takes one more round trip than forward 
+	 where as servlet forward just forwards the request to another resource on the server and it does not take a full round trip 
+	 that is why forward is some time referred as server side redirect.
+	 
+ii) The another difference is you can redirect the request to some other URL on some another site but you can not forward the request to some other URL on different site.
+
+iii) Servlet forward will forward the existing request to another JSP or Servlet, so all the request parameters and attributes will be available to destination servlet. 
+	   However with redirect, browser sends new request to specified URL, so old request parameters and attributes will not be available to destination resource.
+	   
+iv) Browser is completely unaware of servlet forward and hence the URL in browser address bar will remain unchanged.
+	 Where as the URL in browser address bar will change to new URL when servlet redirect is used
