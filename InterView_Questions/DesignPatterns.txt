@@ -1,0 +1,15 @@
+=============================================================================================
+***************
+DESIGN PATTERNS
+***************
+http://www.corej2eepatterns.com/Patterns2ndEd/TransferObject.htm --> good
+
+Abstracting solutions to recurring design problems
+http://www.freejavaguide.com/java-design-patterns.pdf --> uml printout
+
+http://javapapers.com/design-patterns/facade-design-pattern/
+http://www.allapplabs.com/java_design_patterns/facade_pattern.htm
+
+http://viralpatel.net/blogs/java-singleton-design-pattern-tutorial-example-singleton-j2ee-design-pattern/ --> super
+http://www.javabestpractice.com/java/java-design-pattern/creational-patterns/singleton-pattern.html
+

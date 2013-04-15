@@ -63,6 +63,12 @@ int[] grades = {1,5,2,9,4,6,2,4,5,6,2,8};
 		Arrays.sort(grades);
 		for(int x: grades)
 		System.out.println(x);
+		
+To convert List to Array
+String[] grades = list.toArray(new String[list.size()]);
+
+To convert Array to List		
+List list = Arrays.asList(array);
 
 =============================================================================================		
 1) break -- breaks out of the current loop -- can be used only in loops and switch
@@ -328,6 +334,52 @@ Vector is synchronized
 ArrayList is not synchronized
 
 =============================================================================================
+ENUMERATION, ITERATOR, LIST ITERATOR
+
+ENUMERATION: it is a read only interface by which you can enumerate the elements in a collection of objects
+	The two main methods in it are	
+	hasMoreElement()
+	nextElement()	
+	
+ITERATOR: Used to iterate over collection objects in one direction
+	The main methods present in that are
+	hasNext()
+	next()
+	remove()	
+
+LISTITERATOR: Used to iterator over collection objects in both directions
+	next()
+	previous()
+	
+=============================================================================================
+How to synchronize collection objects
+
+ Map myMap = Collections.synchronizedMap (map); // single lock for the entire map
+ List myList = Collections.synchronizedList(list); // single lock for the entire list
+ Set mySet = Collections.synchronizedSet(set); // single lock for the entire set
+
+=============================================================================================
+COMPARABLE & COMPARATOR
+
+Comparable and comparator are interfaces used to implement sorting in java
+
+Comparator :
+	present in java.util package
+	public int compare(Object o1, Object o2) --> compares two different objects
+
+Comparable : 
+	present in java.lang package
+	Generally used to implement natural ordering of elements
+	public int compareTo(Object o)	--> Allows itself to compare with another similar object
+
+=============================================================================================
+Concurrent Modification Exception
+
+The java.util Collection classes are fail-fast, which means that if one thread changes a collection while another
+thread is traversing it through with an iterator the iterator.hasNext() or iterator.next() call will throw
+ConcurrentModificationException
+
+=============================================================================================
 FINAL:
 A final class cannot have subclasses
 A final variable cannot be chnaged once it is initialized
@@ -515,20 +567,5 @@ System.out.println(sb1.equals(sb2)); --> false
 The equals method of StringBuffer is not overridden from Object, so it is just reference equality, i.e., the same as using ==. 
 I suspect the reason for this is that StringBuffer is modifiable, and overriding equals is mostly useful for value-like classes 
 that you might want to use as keys (though lists also have an overridden equals and StringBuffer is kind of a list, so this is a bit inconsistent).
-
-=============================================================================================
-***************
-DESIGN PATTERNS
-***************
-http://www.corej2eepatterns.com/Patterns2ndEd/TransferObject.htm --> good
-
-Abstracting solutions to recurring design problems
-http://www.freejavaguide.com/java-design-patterns.pdf --> uml printout
-
-http://javapapers.com/design-patterns/facade-design-pattern/
-http://www.allapplabs.com/java_design_patterns/facade_pattern.htm
-
-http://viralpatel.net/blogs/java-singleton-design-pattern-tutorial-example-singleton-j2ee-design-pattern/ --> super
-http://www.javabestpractice.com/java/java-design-pattern/creational-patterns/singleton-pattern.html
 
 =============================================================================================
