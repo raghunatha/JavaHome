@@ -1,0 +1,87 @@
+============================================
+Database
+
+Ex: Oracle, MySql, SqlServer, DB2
+clents for databases : TOAD, SQLDeveloper, MySqlWorBench
+
+Each and every data base has their own jar files used for connecting to data base
+
+There are 4 types of drivers we have
+
+The manifest files contains the file name with main method
+
+============================================
+
+AnyThing dealing with data in the tables are DML statements
+select, insert, update, delete
+
+Anything dealing with tables(or structure) are DDL statements
+Creating or altering or droping -- databases, tables , indexes
+============================================
+select * from....
+insert into ...
+update table set...
+delete from table..
+truncate
+drop
+
+Inner join, left join , right join
+
+UNION :used to join the out put of two queries 
+I want to get all the employee's id's whose id  > 10 and (id < 10 and salary > 5000) 
+1st query id > 10
+2nd query (id < 10 and salary > 5000)  
+since we cannot write the two queries in one shot we will use union to join the result of 2 queries
+
+UNION ALL:
+
+UNION will give me only unique results 
+Union All will exclude the duplicates
+
+============================================
+Performance
+
+Database is file system, and when we try to search in it, it will take some time for executing
+If the data is huge it might take more time
+
+So to improve the performance we can create indexes
+indexes can be
+1)clustered or
+2)non clustered
+
+clustered index stores the order in which you store your data
+In a table there can be only one column which can be named as a clustered index
+All the data that you try to store in that table will be orderd based on that column only
+
+will doing this index help us in improving the performance ??
+for example you have thousands of records and you are trying to search based on some different fields like age and salary doing a full table scan will be slow
+since you are not searching based on the index column the search might not be faster
+
+lets look into nonclustered index
+unlike clustered index, in non clustered index we can have multiple columns which can act as indexes
+but how will it solve the problem??
+will it avoid a full table scan??
+So in this nonclustered scenario there will be a new table created for index purpose. here it will have all the data and information which will tell the memory reference
+The memory reference will point to the actual table and also our required columns like age and salary will be placed here in group by and also in sorted order
+So our newely created table will look like memorylocation column, age column, salary column
+
+But one more issue is even if there are more number of index columns, it will hit the performance since every time you change a record the idex table needs to be reordered
+
+what are the best things you think of while applying non clustered indexes
+Ex : In DML perspective when you are trying to do a look up on a table, you are trying to search based on certain criteria, so create indexes based on your where clause criteria
+     Also consider group by
+     Also joins
+
+============================================
+VIEWS
+
+these are logical tables where we can make sure that view can contain certain set of data only from the original table 
+If data in the original table changes then the view also changes
+
+what will be the size of the view if the original table size is 1GB?
+its gonna be few kb's. since view is a logical representation only
+
+============================================
+ How to select number of employees of a month from a particular table where it has employee name and date as its columns
+ 
+============================================ 

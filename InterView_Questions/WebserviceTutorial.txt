@@ -1,0 +1,128 @@
+WSDL: Web Service Definition Language
+
+What is a WSDL?
+	WSDL is a specification defining how to describe web services in a common XML grammar. 
+
+Advantages of WSDL?
+	WSDL is platform and language independent, which provides a common language for describing services.
+	Represent a contract between the service requestor and service provider.
+
+What is the extension of a WSDL file?
+	filename.wsdl
+	
+What is the language used to write a wsdl file?
+	xml (eXtensive Markup Language) is used to write wsdl file
+
+What are the components of a wsdl file?
+	1)Definitions : Root element for all wsdl documents. It defines the name of the web service, declares multiple namespaces used throughout the remainder of the document.
+	2)Types : Which provides data type definitions used to describe the messages exchanged.
+	3)Message : The message element describes a one-way message, whether it is a single message request or a single message response. It defines the name of the message and contains zero or more message part elements, which can refer to message parameters or message return values.
+	4)PortType : The portType element combines multiple message elements to form a complete one-way or round-trip operation. For example, a portType can combine one request and one response message into a single request/response operation, most commonly used in SOAP services. Note that a portType can (and frequently does) define multiple operations.
+	5)Binding : The binding element describes the concrete specifics of how the service will be implemented on the wire. WSDL includes built-in extensions for defining SOAP services, and SOAP-specific information therefore goes here.
+
+Waht does a Definition element in a wsdl file contain  and explain it?
+	An example of a Definition element is shown below 
+
+	<wsdl:definitions name="HelloMessageWebService" 
+		targetNamespace="http://webservice.raghu.java.com/HelloMessageWebService"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		xmlns="http://schemas.xmlsoap.org/wsdl/"
+		xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"  		 
+		xmlns:tns="http://webservice.raghu.java.com/HelloMessageWebService"
+	>
+	
+	a) name atribute defines the name of the web service
+	b) The use of namespaces is important for differentiating elements, and it enables the document to reference multiple external specifications, including the WSDL specification, the SOAP specification, and the XML Schema specification.
+	c) The definitions element also specifies a targetNamespace attribute. The targetNamespace is a convention of XML Schema that enables the WSDL document to refer to itself. 
+		we specified a targetNamespace of http://webservice.raghu.java.com/HelloMessageWebService. Note, however, that the namespace specification does not require that the document actually exist at this location.
+		the important point is that you specify a value that is unique, different from all other namespaces that are defined.
+		(Ingeneral HelloMessageWebService.wsdl is placed under a package which is com.java.raghu.webservice)
+	d) Finally, the definitions element specifies a default namespace: xmlns=http://schemas.xmlsoap.org/wsdl/. All elements without a namespace prefix, such as message or portType, are therefore assumed to be part of the default WSDL namespace.
+
+
+What does a Type element in a wsdl file contain and explain it? 
+	An example of a type element is shown below
+
+	<types>
+	  	<xsd:schema targetNamespace="http://webservice.raghu.java.com/HelloMessageWebService" xmlns="http://www.w3.org/2001/XMLSchema">
+		<xsd:import namespace="http://request.linkfpaccount.webservice.raghu.java.com/HelloMessageWebService/getmessagerequest" schemaLocation="GetMessageRequest.xsd" />
+	    	<xsd:import namespace="http://response.linkfpaccount.webservice.acc.excentus.com/ENAccWebService/getmessageresponse" schemaLocation="GetMessageResponse.xsd" />	    	
+		</xsd:schema>
+	</types>
+
+	OR
+
+	 <types>
+		<xsd:schema targetNamespace="http://webservice.raghu.java.com/HelloMessageWebService" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<element name="GetMessageRequest">
+				<complexType>
+					<all>
+						<element name="userName" type="string"/>
+					</all>
+				</complexType>
+			</element>			
+		</schema>
+	  </types>
+
+	a) The types element describes all the data types used between the client and server
+	b) WSDL allows the types to be defined in separate elements so that the types are reusable with multiple Web services.
+	c) If the service uses only XML Schema built-in simple types, such as strings and integers, then types element is not required
+	
+
+What does a Message element in a wsdl file contain and explain it? 
+	An example of a message element is shown below
+	
+	<message name="SayHelloRequest">
+	   <part name="firstName" type="xsd:string"/>
+	</message>
+	<message name="SayHelloResponse">
+	   <part name="greeting" type="xsd:string"/>
+	</message>
+
+	a) Describes the data being exchanged between the web service providers and consumers
+	b) Each Web Service has two messages: input and output
+	c) The input describes the parameters for the Web Service and the output describes the return data from the Web Service
+	d) Each <part> parameter associates with a concrete type defined in the <types> container element //TODO
+	e) The part element's type attribute specifies an XML Schema data type
+	f) The value of the type attribute must be specified as an XML Schema QName--this means that the value of the attribute must be namespace-qualified. For example, the firstName type attribute is set to xsd:string; the xsd prefix references the namespace for XML Schema, defined earlier within the definitions element
+	g) If the function expects multiple arguments or returns multiple values, you can specify multiple part elements
+
+
+What does a PortType element in a wsdl file contain and explain it? 
+	An example of a porttype element is shown below
+
+	<portType name="Hello_PortType">
+	   <operation name="sayHello">
+	      <input message="tns:SayHelloRequest"/>
+	      <output message="tns:SayHelloResponse"/>
+	   </operation>
+	</portType>
+
+	a) The portType element defines a single operation, called sayHello
+	b) The operation itself consists of a single input message SayHelloRequest
+	c) The operation itself consists of a single output message SayHelloResponse
+	d) The input element specifies a message attribute of tns:SayHelloRequest; the tns prefix references the targetNamespace defined earlier within the definitions element
+
+	WSDL supports four basic patterns of operation:
+
+		One-way
+			The service receives a message. The operation therefore has a single input element.
+		Request-response
+			The service receives a message and sends a response. The operation therefore has one input element, followed by one output element (illustrated previously in Example 6-1). To encapsulate errors, an optional fault element can also be specified.
+		Solicit-response
+			The service sends a message and receives a response. The operation therefore has one output element, followed by one input element. To encapsulate errors, an optional fault element can also be specified.
+		Notification
+			The service sends a message. The operation therefore has a single output element.
+
+
+What does a Binding element in a wsdl file contain and explain it? 
+
+	a) The <binding> element provides specific details on how a portType operation will actually be transmitted over the wire.
+	b) The bindings can be made available via multiple transports, including HTTP GET, HTTP POST, or SOAP
+	c) The bindings provide concrete information on what protocol is being used to transfer portType operations
+	d) The bindings provide information where the service is located
+	e) For SOAP protocol, the binding is <soap:binding>, and the transport is SOAP messages on top of HTTP protocol
+	f) You can specify multiple bindings for a single portType
+	
+	An example of a binding element is shown below
+		<binding name="Hello_Binding" type="tns:Hello_PortType"> //TODO
