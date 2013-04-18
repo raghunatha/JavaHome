@@ -334,7 +334,7 @@ Vector is synchronized
 ArrayList is not synchronized
 
 =============================================================================================
-ENUMERATION, ITERATOR, LIST ITERATOR
+ENUMERATION, ITERATOR, LISTITERATOR
 
 ENUMERATION: it is a read only interface by which you can enumerate the elements in a collection of objects
 	The two main methods in it are	
@@ -345,7 +345,7 @@ ITERATOR: Used to iterate over collection objects in one direction
 	The main methods present in that are
 	hasNext()
 	next()
-	remove()	
+	remove() //can modify the collection	
 
 LISTITERATOR: Used to iterator over collection objects in both directions
 	next()
@@ -569,3 +569,6 @@ I suspect the reason for this is that StringBuffer is modifiable, and overriding
 that you might want to use as keys (though lists also have an overridden equals and StringBuffer is kind of a list, so this is a bit inconsistent).
 
 =============================================================================================
+CLONING:
+ShallowCopy vs DeepCopy
+http://www.jusfortechies.com/java/core-java/deepcopy_and_shallowcopy.php
