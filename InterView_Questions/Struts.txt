@@ -1,0 +1,51 @@
+1) version of struts used : --> say 1.3 to be on safer side
+
+2) Architecture of struts (explained taking in to consideration aa ActionClass, servicelayer and DAOlayer)
+	When the user submits the form, the request comes to the application, 
+	based on the mappings(urlpattern mapping) present in the web.xml file the request is validated,
+	If the request is validated then the control is given to ActionServlet(provided by struts)
+	ActionServlet takes the control, reads the struts-config.xml(for all mappings like form-beans, action-mappins, message-resources, plugins, and so on...)
+	And based on the action the ActionServlet forwards the request to specific ActionClass
+	From Action Class the control goes to serviceLayer 
+	From ServiceLayer to DAOlayer
+	From DAOLayer back to Service
+	From ServiceLayer back to ActionClass
+	ActionClass returns a mapping object and based on the mapping object the ActionServlet displays appropriate view to the user 	
+	
+3) What is MVC
+	Model : Encapsulates the state of the application. Business logic, data processing etc all are done here
+	View : Provides the presentation interface to the user. HTML, JSP pages
+	Controller : controls the application flow. Action Servlet
+	
+4) What is ActionServlet
+	A servlet given by struts framework for managing the control for the application
+
+5) What is ActionForm
+	ActionForm is a java bean which binds the form data coming from the view and gives the same data to the action class
+
+6) What are the important methods in ActionForm
+	validate() : Used for validating the form data and returns ActionErrors object
+	reset() : used to reset all of the ActionForm's data prior to the new request values being set
+
+7) what is the role of an Action Class
+	An Action Class performs a role of an adapter between the contents of an incoming HTTP request and the corresponding business logic that should be 
+	executed to process this request.
+	In an Action class the execute() method is called, where the business logic is written
+
+8) Explain Struts-config.xml
+	An xml file where all the formBeans, action mappings, message-resources, plugins and so on are declared
+	
+9) Can we have more than one struts-config.xml files in a single application
+	Yes, And to use them declare it in the web.xml init-param tag which is given to ActionServlet
+	
+10) Difference between session scope and request scope of a form bean
+	when the scope is request,the values of formbean would be available for the current request.
+	when the scope is session,the values of formbean would be available throughout the session.	
+	
+11) what is DispatchAction
+	DispatchAction class is used to group related actions into one class
+	http://viralpatel.net/blogs/struts-dispatch-action-tutorial-with-example-in-eclipse/
+
+12) What is ForwardAction
+	Used to forward the request to a resource in your application, like a jsp page with out writing an action class
+	http://www.mkyong.com/struts/struts-forwardaction-example/	

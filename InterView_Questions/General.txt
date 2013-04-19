@@ -1,0 +1,6 @@
+1)How would you distribute equal number of candies to 10 children which are in packets numbered 1 to 100
+	each having candies equal to number on the packet?
+	
+2)What u have done in scrum meetings?
+
+3)

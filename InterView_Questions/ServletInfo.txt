@@ -1,0 +1,147 @@
+Servlet:
+Request Response Model : A model in which there are two entities involved
+
+1) Requester: One who sends a request.
+2) Responser : One who sends a response for the request.
+
+We use web container and web server synonymously
+Real World Examples for Request-Response : For ex- Requesting for a webpage(www.google.com) in browser. Your browser is the 
+requestor here and response is given by a web server residing somewhere in the network.
+
+Most of the systems run on this model. Other model is Publish/Subscribe(not discussed in this tutorial)
+
+How request reponse works in a web context?
+
+When you type (www.google.com), typically your browser sends a HTTP request to a web server (). A web server is a software 
+module which processes the requests coming from clients(in our case typically a browser).
+
+Parts of HTTP request sent by your browser
+
+1) HTTP method (GET,POST,HEAD,DELETE,TRACE etc), most commonly used are GET or POST
+2) URL which you want to access (For ex www.google.com)
+3) Form Parameters (optional. Passed in HTTP Request header only)
+4) Information about the broswer and few other details
+
+GET /index.html HTTP/1.1   (HTTP RequestType  URL  Version of HTTP)
+Host: www.ancbn.com         ( Actual hostname)
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.172 Safari/537.22  (Your web browser info)
+Referer: https://www.google.com/     (if the request was forwarded from other site)
+Accept-Language: en-US,en;q=0.8      (language your browser accepts)
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.3 (charset your browser accepts)
+
+Parts of HTTP response sent by the web server
+
+Response has two parts
+1) Header (Status Code,Type of Content,Cookies,TTL)
+2) Body (Actual content for the browser use)
+
+
+1) Status Code (typically 200 if the request was successful or else 404,500 etc)
+2) Type of content ( if it is pure text or a file or a image etc)
+3) Actual content ( It is part of the HTTP response body) 
+
+
+What is Servlet?
+
+Servlets are server side programs which are run inside a web container when a HTTP request is sent by any HTTP client (for ex - web browsers).
+How to write a Servlet
+1) Simply extend the HttpServlet class 
+
+It is recommended not to override the service method present in the HttpServlet class. (You can if you know what you are doing)
+
+Servlet Life cycle
+1) Servlet is loaded by the web container when the first request for the servlet comes in.
+2) Container calls the init method in the Servlet. (This method is called only once in the whole life cycle of the Servlet)
+3) Container calls the service method present in HttpServlet class and determines the type of request (for ex- GET or POST)
+4) doGet,doPost etc. methods are called from service method based on type of request. 
+5) Whenever a new request comes, if the servlet is already loaded , the container spawns a new thread and the service method of the Servlet is called
+6) destroy method is called by the container only once before the servlet is unloaded by the container.
+
+NOTE: destroy method is a normal method which can be called by the developer any number of times but that wont trigger unloading of the servlet.
+The container takes that as a normal method call.
+
+Typical process at web container side when a request is received
+
+1) Web Container looks for an URL mapping in web.xml
+2) If not found , sends a 404 error to the user else go to Step 3
+3) The mapped servlet for the specific URL is loaded in the container (NOTE : Servlet is loaded only once, for subsequent requests same servlet instance is used)
+4) Servlets processes the request and forwards the control to another HTML/JSP page.
+5) The response is sent back to the browser ( which is typically a HTML page)
+
+
+Servlet Interface Hierarchy
+Read from right to left
+Servlet Interface<-- (implements) Generic Servlet (Abstract class) <-- (extends) HttpServlet (Abstract Class) <-- (extends) YourCustomServlet (Concrete Implementation)
+
+
+Points to Remember
+1) There is only one ServletContext object per application
+2) There is one ServletConfig object per Servlet/JSP.
+3) Generic Servlet is given by Java so that you can handle your own protocol implementations.
+4) HttpServlet is only for requests which follow HTTP protocol.
+5) Container spawns a new thread of your Servlet for every request and does not create a new instance of Servlet
+6) Container other jobs are security,support for other technologies
+7) Servlets do have a constructor (Typically not used for any purpose)
+
+
+Difference between sendRedirect and forward
+
+Send Redirect 													Forward
+1) Send Redirect sends a response                               1)Forwards the request to the new servlet   
+   back to the browser with a different URL where
+   it can get the resource.
+2) Send Redirect does not send the previous                     2)we can access both request and response objects
+   request object and it is lost
+3) Typically used when the resource looking                     3)Typically used when the resource looking for is
+   for is available in another web application                     available in the same web application 
+
+
+Lets try to understand sendRedirect
+
+For ex- Previously Java was owned by Sun Microsystems. So the URL was sun.java.com. Recently, Sun was brought by Oracle. Now, Oracle wants people to use
+oracle.java.com. But it has a problem that people still dont know the new URL. Typically , people will still try to open sun.java.com. So in this case, Oracle
+what it does is it uses sendRedirect in the web application hosted by Sun Systems. So now when a user try to open sun.java.com, the servlet will do sendRedirect to
+oracle.java.com which essentially means that the browser will be informed that the resource it is trying to look is available at a new location oracle.java.com
+and the browser sends a new request. Please note that this is transparent to us as users i.e. you as an user will not know that there was redirect which is happening.
+Not sendRedirect has network round trip
+
+Example for Forward
+
+For ex- Take a simple Login Application. Now user enters his userID and password. So internally it calls a UserServlet which verifies if the userId and password
+is correct or not. Now after verifying , what should the servlet do. Ideally, it has to forward control to some page. Now what could be that page?
+1) If user is authenticated, he should be forwarded to HomePage of the application (normally the Homepage is part of the same application)
+2) If user is not authenticated , he should be forwarded to error page.
+
+
+
+============================
+
+1) How many instances of a servlet are created?
+Ans: There is only a single instance which answers all requests concurrently. This saves memory and allows a Servlet to easily manage persistent data.
+
+2) What is deployment descriptor?
+Ans: A deployment descriptor is an XML document with an .xml extension. It defines a component's deployment settings.
+
+3) What is pre initialization of servlet?
+Ans: A container does not initialize the servlets as soon as it starts up, it initializes a servlet when it receives a request for that servlet first time. This is called lazy loading
+
+4) What is the <load-on-startup> element?
+Ans: The <load-on-startup> element of a deployment descriptor is used to load a servlet file when the server starts instead of waiting for the first request.
+Note: The container loads the servlets in the order specified in the <load-on-startup> element.
+
+5) Is HTTP a stateless protocol? Yes
+
+6) What is session tracking?
+Ans: Session tracking is a mechanism that servlets use to maintain state about a series of requests from the same user (that is, requests originating from the same browser) across some period of time.
+
+7) What are the types of Session Tracking ?
+Ans: 1) Cookies
+     2) Url Rewriting
+     3) Hidden form fields
+     4) HttpSession
+
+8) request.getsession() vs request.getsession(true)
+Ans: The request.getSession() returns the current HttpSession associated with this request, or if the request does not have a session, creates one new session. 
+	There is actually no difference between the request.getSession() method and the request.getSession(true) method.
+	getSession(false) will not return a new Session if one does not already exist

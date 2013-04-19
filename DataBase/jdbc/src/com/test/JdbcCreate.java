@@ -20,7 +20,7 @@ public class JdbcCreate {
 			conn = DriverManager.getConnection(url + dbName, userName, password);
 			try {				
 				Statement stmt = conn.createStatement();
-				String createTable = "CREATE TABLE EMPLOYEE(EMP_ID Integer, EMP_NAME varchar(50))";
+				String createTable = "CREATE TABLE USER(USER_ID Integer PRIMARY KEY , USER_NAME varchar(25) NOT NULL UNIQUE, USER_PASSWORD varchar(50) NOT NULL)";
 				stmt.executeUpdate(createTable);
 				System.out.println("Table created successfully");
 			} catch (SQLException s) {

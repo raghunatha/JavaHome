@@ -20,7 +20,7 @@ public class JdbcDrop {
 			conn = DriverManager.getConnection(url + dbName, userName, password);
 			try {				
 				Statement stmt = conn.createStatement();
-				String dropTable = "DROP TABLE EMPLOYEE";
+				String dropTable = "DROP TABLE USER";
 				stmt.executeUpdate(dropTable);
 				System.out.println("Table deleted successfully");
 			} catch (SQLException s) {

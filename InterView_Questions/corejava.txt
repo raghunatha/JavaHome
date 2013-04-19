@@ -1,0 +1,574 @@
+
+=============================================================================================
+**********
+CORE JAVA
+**********
+1)Difference betwen primitive and wrapper class
+int --> primitive data type --> used for simple computations
+Integer -- > wrapper class --> used to store things in collection objects --> Object representation of primitive data type 
+The size of int is 4bytes(32 bits). Size of Integer is also the same
+
+String is not a primitive datatype. It is a class in java
+
+=============================================================================================
+String 
+
+String s1 = "raghu"; // creates a string pool and stores it in say 5000 memory location. so s1 will be pointing to 5000 memory location
+String s2 = "raghu"; // will not assign a new memory location for "raghu", since it is present in string pool at 5000 memory location. so s2 will also point to 5000 memory location only 
+String s3 = "raghu"; // s3 will also point to 5000 memory location, as per the above concept
+String s4 = "Raghu"; // java is case sensitive, "raghu" is not equal to "Raghu" so again a new memory for "Raghu" will be created say 5500
+
+String s5 = "naveen"; // stores it in say 6000 memory location(since this is the first time we are creating "naveen" string.)
+
+s1 == s2 --> returns true. since == compares addresses which is 5000 for both
+s1.equals(s2) -- returns true. since .equals method compares the values which these string hold which is "raghu".
+
+String s6 = new String("raghu"); // string pool concept will not hold good here since we are saying "new", so every time you use new key word a new meory will be created assume 7000 for this s6
+String s7 = new String("raghu"); // creates a new memory location say 8000 and s7 will poin to it.
+
+s6 == s7 --> returns false. since == compares addresses which is 7000 for s6 and 8000 for s7 which are not equal
+s6.equals(s7) -- returns true. since .equals method compares the values which these string hold which is "raghu".
+
+s1 == s6 --> returns false. since == compares addresses which is 5000 for s1 and 7000 for s6 which are not equal
+s1.equals(s7) -- returns true. since .equals method compares the values which these string hold which is "raghu".
+
+Strings are immutable in java
+StringBuffer is mutable
+StringBuilder is mutable
+
+Main difference between String and StringBuffer is String is immutable while StringBuffer is mutable means you can modify a StringBuffer object
+You can convert a StringBuffer or StringBuilder into String by its toString() method
+
+String is immutable while StringBuffer and StringBuilder are mutable objects
+StringBuffer is synchronized while StringBuilder is not which makes StringBuilder faster than StringBuffer
+
+Example:
+StringBuffer sb = new StringBuffer("Hello"); // assume that sb points to "Hello" in 1234 memory location
+StringBuffer sb1 = new StringBuffer("Hello"); // assume that sb1 points to "Hello" in 5678 memory location
+
+sb.equals(sb1); //returns false since the equals method on Object class is called which compares addresses which are 1234 and 5678
+
+//To compare String buffer objects, first convert them to String using the toString method 
+sb.toString().equals(sb1.toString())); // now the equals method in String class is called which compares "Hello" in both the objects and returns true
+
+//The above concept of StringBuffer holds good for StringBuilder also 
+
+=============================================================================================
+Arrays:
+Sequential storage of similar kind of data.
+
+how to sort an array ?? --> using Arrays.sort method in java.util package
+
+int[] grades = {1,5,2,9,4,6,2,4,5,6,2,8};
+		Arrays.sort(grades);
+		for(int x: grades)
+		System.out.println(x);
+		
+To convert List to Array
+String[] grades = list.toArray(new String[list.size()]);
+
+To convert Array to List		
+List list = Arrays.asList(array);
+
+=============================================================================================		
+1) break -- breaks out of the current loop -- can be used only in loops and switch
+2) continue -- skips the execution of below lines of code -- can be used only in a loop
+		
+=============================================================================================
+Features of OOPS 
+Abstraction
+Hiding the unnecessary data from the user and exposing only essential information
+
+Encapsulation
+The process of binding code and data together in the form of a capsule
+
+Polymorphism
+The feature by which one class acquires the properties and functionalities of another class
+
+Inheritance
+The feature that allows the same interface to be used for a general set of actions		
+
+=============================================================================================
+what is the memory we are taling about?
+On your RAM there will be some memory allocated, called HEAP and STACK
+HEAP: All the objects created in java are stored in heap
+STACK: All the method level variables are stored in stack
+
+=============================================================================================
+Garbage collection
+
+Garbage collection is automatically handled by jvm, where a deamon thread runs in the background looking for any unused objects to remove or free
+them from memory
+
+can you force garbagecollection. --> yes by using a command System.gc();
+
+=============================================================================================
+System.exit(-1); --> Terminates the currently running Java Virtual Machine. 
+	The argument serves as a status code; by convention, a nonzero status code indicates abnormal termination.
+
+=============================================================================================	
+static key word
+
+class: static keyword can be applied for inner classes only
+Methods: a static method is called by classname directly. A static method can call static variables and static methods only. A static method cannot
+call non static variables and methods
+Variables : class variables are called static variables. There is only one occurence of a class variable per class. static variables can be called
+from static methods and non static methods also
+
+=============================================================================================	
+final key word
+
+Class: when a class is made final it cannot be inherited(i.e cannot be extended)
+Mehtod: when a method is made final it cannot be overridden
+variable: makes the variable immutable
+
+=============================================================================================	
+Abstract
+
+if you know partial implementation of a class then make the class abstract since it contains certain unimplemented methods whicha re called
+abstract methods.
+
+An abstract method cannot be instantiated.
+Abstract method can have Zero methods
+Abstract class can have concrete methods
+Abstract calss can have abstract methods
+If there is atleast one abstract method in a class then that class must be declared as abstract
+
+An abstract method will not contain body(no implementation)
+public void getArea(); // example of an abstract method
+The implementation for an abstract method is written in the subclass
+
+A variable cannot be declared as abstract
+
+=============================================================================================	
+Interface
+
+An interface contains all abstrcat methods only
+By default all methods are equal
+
+An Inteface can extend multiple interfaces
+A class can extend only one class
+A class can implement multiple interfaces
+
+can have only static final variables
+
+=============================================================================================	
+Can a class extend multiple classes
+
+No Class cannot extendmultiple classes, but it can implement multiple interfaces
+
+=============================================================================================	
+Marker Interfaces
+
+Empty interfaces are called marker interfaces.
+It gives an indication to the jvm what needs to be done
+Example : Serializable, cloneable
+
+Public interface Serializable{
+}
+
+=============================================================================================	
+CONSTRUCTOR:
+
+constructor has the same name as the class name
+constructors are ingeneral declared public (can also be private, protected and default)
+constructors can be overloaded -- check this in overload key word section below 
+construcors cannot be overridden
+if you dont write a constructor in your class then the compiler will write a default constructor for you
+if you write any type of constructor in your class, the compiler will not add a default constructor for you
+default constructor is always a no-argument constructor
+
+use this() to call a constructor from another
+use this(x) to call a parameterized constructor from another
+use super() to call super class constructor from a subclass constructor
+use super(a, b) to call super class parameterized constructor from a subclass constructor
+
+=============================================================================================	
+METHOD:
+
+MethodOverloading: 
+	Overloading deals with multiple methods in the same class with same name but different method signature
+	Overloading lets you define the same operation in different ways for different data
+	
+MethodOverriding:
+	Overriding deals with two methods, one in the parent class and the other in the child class and has the same name and signature
+	It lets you define the same operation in different ways for different object types	
+
+Use super.methodName() // to call a method in the super class
+Use this.methodName() // to call a method in the current class	
+	
+=============================================================================================	
+The "is a" relationship is expressed with inheritance and "has a" relationship is expressed with composition
+
+=============================================================================================	
+SERIALIZATION:
+Process by which objects are converted into a stream of bytes.(Class Instance will be serialized)
+A Static variable in java cannot be serialized.
+A transient variable in a class instance cannot be serialized.
+
+=============================================================================================
+Transient
+
+Applied to a variable which should not be serialized
+
+=============================================================================================	
+boxing, unboxing
+
+int x = 5;
+list.add(x); // Boxing : list can store only objects, so the primitive variable x value will be converted into object before storing in the
+						collection object list
+Integer y = 6; // Boxing : converting the primitive value to object
+
+int i = new Integer(8) // Unboxing : assigning Object to primitive data type
+
+=============================================================================================	
+CLASS LOADERS:
+
+Used for loading classes in java.
+Class loader follows a delegation model i.e they request their parents to load the class(till the top level is reached) and if that does not happen
+ it itself tries to load the class
+Classes which are loaded by a class loader are not visible to its parents or siblings but only to the child.
+
+System Class loader --> Extensions class loader --> Bootstrap class loader
+
+=============================================================================================
+CLASS LOADING:
+
+Static Class loading: 
+	Classes loaded using the new operator
+	Student student = new Student();
+
+Dynamic Class loading:
+	Programatically invoking the classes at runtime
+	Class studentClass = Class.forName("com.rnr.Student");
+	Student student = (Student)studentClass.newInstance();
+	
+=============================================================================================	
+JAVA RUNTIME POLYMORPHISM:
+Method overriding is one of the good examples of run time polymorphism in java.
+With method overriding methods are bound to object instances during run time.
+
+STATIC binding & Dynamic Binding
+=============================================================================================
+STATIC IMPORTS:
+The Static import construct allows unqualified access to static members
+
+double r = Math.cos(Math.PI * theta);
+
+import static java.lang.System.out;
+import static java.lang.Math.PI;
+import static java.lang.Math.cos;
+...
+double r = cos(PI * theta);
+out.println("Blah blah blah");
+
+=============================================================================================
+ACCESSMODIFIERS
+
+1) Public --> Methos and variables can be accesed by any class in the same package or outside the package
+	Public Access is valid for --> Outer classes, inner classes, constructors, interfaces, methods, class level variables 
+
+2) Private --> Methos and variables cannot be accesse by any one out side the class
+	Private Access is valid for --> inner classes, constructors, methods, class level variables 
+
+3) Protected --> can be accessed by classes in the same package and any other sub classes present in different package
+	Protected Access is valid for --> inner classes, constructors, methods, class level variables 
+
+4) default --> can be accessed by classes only with in the same package 
+	Protected Access is valid for --> Outer classes, inner classes, constructors, interfaces, methods, class level variables 
+
+=============================================================================================
+INNER CLASSES
+
+class Outside{
+class Inside{
+}
+}
+
+=============================================================================================
+WRAPPER CLASSES:
+Wrapper Classes are classes that allow primitive types to be accessed as objects
+
+=============================================================================================
+MAP:
+http://www.coderanch.com/t/498399/java/java/Code-store-null-keys-null
+HashMap, HashTable, TreeMap are the concrete implementations of Map interface
+
+Hashtable is synchronized, whereas HashMap is not.
+Hashtable does not allow null keys or values. HashMap allows one null key and any number of null values
+TreeMap is sorted based on the keys --> does not allow null keys
+
+	Map map=new HashMap(); 
+    map.put(null, "raghu"); //storing null key is allowed in hash map
+	map.put(1, null); //storing null value is allowed in hash map
+    System.out.println(map.get(null)); //prints raghu
+    
+    Map map1=new Hashtable(); 
+    map1.put(null, "ramu"); //storing null key will cause an exception
+	map1.put(1, null); //storing null value is not allowed
+    System.out.println(map1.get(null));
+	
+	Map map1=new TreeMap(); 
+	map1.put(null, "ramu"); //storing null key will cause an exception
+	map1.put(1, null); //storing null value is allowed
+	System.out.println(map1.get(1));
+    
+    Map map2 = new HashMap();  
+    map2.put(null, "bob");  
+    map2.put(null, "jerry");  
+    map2.put(null, "kily");            
+    System.out.println(map2.size()); //prints size as 1
+
+=============================================================================================
+SET:
+Set cannot contain duplicate elements, The ordering of elements is not maintained
+HashSet, TreeSet --> some of the concrete implementations of Set Interface
+HashSet allows one null value
+TreeSet cannot contain null values, and tree set is sorted
+	
+=============================================================================================
+List:
+List Allows duplicate elements, ordering of elements is maintained, can caotain multiple null values
+ArrayList, Vector, LinkedList --> concrete implementations of the list object 
+Vector is synchronized
+ArrayList is not synchronized
+
+=============================================================================================
+ENUMERATION, ITERATOR, LISTITERATOR
+
+ENUMERATION: it is a read only interface by which you can enumerate the elements in a collection of objects
+	The two main methods in it are	
+	hasMoreElement()
+	nextElement()	
+	
+ITERATOR: Used to iterate over collection objects in one direction
+	The main methods present in that are
+	hasNext()
+	next()
+	remove() //can modify the collection	
+
+LISTITERATOR: Used to iterator over collection objects in both directions
+	next()
+	previous()
+	
+=============================================================================================
+How to synchronize collection objects
+
+ Map myMap = Collections.synchronizedMap (map); // single lock for the entire map
+ List myList = Collections.synchronizedList(list); // single lock for the entire list
+ Set mySet = Collections.synchronizedSet(set); // single lock for the entire set
+
+=============================================================================================
+COMPARABLE & COMPARATOR
+
+Comparable and comparator are interfaces used to implement sorting in java
+
+Comparator :
+	present in java.util package
+	public int compare(Object o1, Object o2) --> compares two different objects
+
+Comparable : 
+	present in java.lang package
+	Generally used to implement natural ordering of elements
+	public int compareTo(Object o)	--> Allows itself to compare with another similar object
+
+=============================================================================================
+Concurrent Modification Exception
+
+The java.util Collection classes are fail-fast, which means that if one thread changes a collection while another
+thread is traversing it through with an iterator the iterator.hasNext() or iterator.next() call will throw
+ConcurrentModificationException
+
+=============================================================================================
+FINAL:
+A final class cannot have subclasses
+A final variable cannot be chnaged once it is initialized
+A final method cannot be overridden
+
+A final method can be overloaded
+=============================================================================================
+Finally:
+
+In which scenario a finally block will not be called ? 
+Ans: when we call System.exit(-1); --> as this method terminates the JVM the finally block wil not be called
+
+=============================================================================================
+Finalize:
+
+Finalize methods are invoked by garbage collectors prior to reclaiming the memory occupied by the object 
+=============================================================================================
+EXCEPTIONS:
+Checked Exceptions: These are checked at compilation time by the java compiler Ex: IOException, SQLException, MalformedURLException
+UnChecked Exceptions: These are checked by the JVM Ex:ArrayIndexOutOfBounds
+
+Throwable
+	i) Error --> they cannot be handled, examples: when jvm crashes, or when a database connction is lost, power failure......
+	ii) Exception --> They are caused by improper coding done by the user and can be handled
+		a)Runtime Exception --> Ex: ArrayIndexOutOfBounds, NumberFormatException .....
+		b)Compiletime Exception --> Ex: All IOExceptions
+		
+try - catch - finally --> combination is valid
+try - catch --> combination is valid
+try - finally --> combination is valid	
+
+=============================================================================================
+Throws & Throw
+
+class Test{
+
+public int add(int num1, int num2)throws ArithmaticException{
+// some code here
+}
+
+public void print(){
+try{
+add(1,5);
+}catch(ArithmaticException e){
+//some code here
+}
+}
+-- The above add method tells that it will not handle the exception instead it will tell the method which ever calls it to handle the exception 
+-- So the method print which is calling the add method will catch and handle the exceptions which add method throws
+
+Throws: I will not handle the exception, instead who ever invokes the method needs to handle it
+Throw: Used to explictly throw an error
+
+=============================================================================================
+User Defined exceptions
+
+To create our own exception class(custom exceptions), extend RuntimeException class or Exception class
+
+=============================================================================================
+THREADS:
+Two ways to create a new Thread of execution
+i) Declare a class to be subclass of Thread Class, and the sub class should override the run method of the Thread class.
+	Ex: SubThreadClass t1 = new SubThreadClass();
+		t1.start();
+ii) Declare a class that implements the runnable interface, then implement the run method		
+	Ex: SubThreadClass t2 = new SubThreadClass();
+		new Thread(t2).start();
+
+wait() --> will wait for specified amount of time, can come out of this state in between if notify() or notifyAll() is called
+sleep() --> must wait for specfied amount of time.
+yield() --> a running thread goes back to runnable state, yielding(giving way) for other thread to run
+join() --> allows current thread to wait indefinetly until thread "t" is finished (Doubt) can a notify command break the waiting thread?
+
+Deamon Threads: Also called as background threads. Example GC		
+
+SYNCHRONIZATION: 
+The process of protecting resources in a multithreaded environment
+With out Synchronization it is possible for one thread to modify a shared object while another thread is in the process of using or updating the objects value,
+This often causes dirty data. But improper synchronization can cause deadlock when 2 threads are waiting on each other for some shared resources.
+
+Collections.SynchronizedList(myList); --> single lock for entire list
+CopyOnWriteArrayList gives thread safety and immutability, so list can be used with out synchronization
+
+=============================================================================================
+SYNCHRONIZED
+
+A class cannot be synchronized 
+
+Acquires a lock on the class for static methods.
+Acquires a lock on the instance for non static methds.
+
+For a detail clarification see the below code
+
+for example:
+//Synchronized block
+
+class A
+{ public void method1() {...} }
+class B
+{
+public static void main(String s[])
+{ A objecta=new A();
+A objectb=new A();
+synchronized(objecta){objecta.method1();}
+objectb.method1(); //not synchronized
+}
+}
+
+
+//synchronized method
+class A
+{ public synchronized void method1() { ...}
+}
+class B
+{
+public static void main(String s[])
+{
+A objecta=new A();
+A objectb =new A();
+objecta.method1(); objectb.method2();
+
+}
+}
+
+http://javarevisited.blogspot.com/2011/04/synchronization-in-java-synchronized.html
+http://www.coderanch.com/t/561358/threads/java/differences-synchronized-blocks-synchronized-method
+http://www.coderanch.com/t/520757/java-programmer-SCJP/certification/Synchronized-Block-Synchronized-method
+
+=============================================================================================
+THREADS
+http://docs.oracle.com/javase/tutorial/essential/concurrency/interfere.html
+http://www.codestyle.org/java/faq-Threads.shtml
+
+First, it is not possible for two invocations of synchronized methods on the same object to interleave. 
+When one thread is executing a synchronized method for an object, all other threads that invoke synchronized methods for 
+the same object block (suspend execution) until the first thread is done with the object.
+
+Second, when a synchronized method exits, it automatically establishes a happens-before relationship with any subsequent 
+invocation of a synchronized method for the same object. This guarantees that changes to the state of the object are visible to all threads
+
+=============================================================================================
+toString()
+
+The main purpose of toString is to generate a String representation of an object, means the return value is always a String. 
+In most cases this simply is the object's class and package name.
+
+=============================================================================================
+REFLECTION
+
+Java's Reflection API's makes it possible to inspect classes, interfaces, fields and methods at runtime, without knowing the names of the classes, methods etc. at compile time
+
+Class aClass = MyObject.class
+String className = aClass.getName();
+Package package = aClass.getPackage();
+
+The methods Class.getField(String name) and Class.getFields() methods only return public fields
+To access a private field you will need to call the Class.getDeclaredField(String name) or Class.getDeclaredFields() method
+
+ The methods Class.getMethod(String name, Class[] parameterTypes) and Class.getMethods() methods only return public methods
+ To access a private method you will need to call the Class.getDeclaredMethod(String name, Class[] parameterTypes) or Class.getDeclaredMethods() method
+
+http://tutorials.jenkov.com/java-reflection/private-fields-and-methods.html
+
+=============================================================================================
+Making Class immutable
+
+making the constructor alone private will not make immutable, since this class can be sub classed and methods can be overridden
+Make the class Final
+
+=============================================================================================
+Can a reference be passed across JVM's? 
+No. An object reference is valid only within the JVM.
+
+=============================================================================================
+How do you compare objects of String and StringBuffer?
+	StringBuffer sb= new StringBuffer("Hello");
+    String s= "Hello";
+    System.out.println(s.equals(sb.toString())); // Prints true
+
+StringBuffer sb1 = new StringBuffer("Java");
+StringBuffer sb2 = new StringBuffer("Java");
+System.out.println(sb1 == sb2); --> false
+System.out.println(sb1.equals(sb2)); --> false
+
+The equals method of StringBuffer is not overridden from Object, so it is just reference equality, i.e., the same as using ==. 
+I suspect the reason for this is that StringBuffer is modifiable, and overriding equals is mostly useful for value-like classes 
+that you might want to use as keys (though lists also have an overridden equals and StringBuffer is kind of a list, so this is a bit inconsistent).
+
+=============================================================================================
+CLONING:
+ShallowCopy vs DeepCopy
+http://www.jusfortechies.com/java/core-java/deepcopy_and_shallowcopy.php

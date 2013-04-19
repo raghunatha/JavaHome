@@ -1,0 +1,37 @@
+1) What are the Core interfaces are of Hibernate framework?
+
+The five core interfaces are used in just about every Hibernate application. 
+Using these interfaces, you can store and retrieve persistent objects and control transactions.
+
+Session interface
+SessionFactory interface
+Configuration interface
+Transaction interface
+Query and Criteria interfaces
+
+===============================================================================
+
+2)Difference between load and get ?
+
+
+===============================================================================
+3)Explain hibernate.cfg.xml 
+
+
+===============================================================================
+4)Explain hbm.xml
+
+
+===============================================================================
+5)Explain lazy loading in hibernate
+
+
+===============================================================================
+6)How to do mappings one-to-one, one-to-many, many-to-one, many-to-many 
+
+
+===============================================================================
+7)Explain cascade
+
+
+===============================================================================
