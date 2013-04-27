@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p=" http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- <bean id="course" class="com.java.beans.Course" />  -->
+
+	<!-- Type1 start --> 
+	<bean id="course" class="com.java.beans.Course">
+		<property name="courseId" value="101"></property>
+		<property name="courseName" value="English"></property>
+	</bean>
+	<!-- Type1 end -->
+
+
+	<!-- Type2 start 
+	<bean id="course" class="com.java.beans.Course" p:courseId="101"
+		p:courseName="English">
+	</bean> -->
+	<!-- Type2 end -->
+
+
+</beans>

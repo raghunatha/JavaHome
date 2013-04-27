@@ -1,0 +1,16 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+	<bean id="studentBean" class="com.spring.general.Student">
+		<property name="addressObject">
+			<ref bean="addressBean" /> <!-- Referring to a bean in different xml file -->
+		</property>
+	</bean>
+	
+	<bean id="simpleStudentBean" class="com.spring.general.Student">
+	</bean>
+
+</beans>

@@ -1,0 +1,34 @@
+10
+
+dir
+120
+https://www.texantek.com/svn/CignitiBatch001/trunk/JMS/src/com/kairos
+https://www.texantek.com/svn/CignitiBatch001
+
+
+
+2012-07-15T16:02:50.164000Z
+57
+siva
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+7daaf9c9-933b-f84d-8f59-a7af4f0acfd3
+
+jdbc
+dir
+
+jms
+dir
+

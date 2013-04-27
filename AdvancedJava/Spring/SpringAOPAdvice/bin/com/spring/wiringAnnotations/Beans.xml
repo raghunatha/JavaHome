@@ -1,0 +1,25 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<context:annotation-config />
+
+	<bean id="customerBean" class="com.spring.wiringAnnotations.Customer">
+		<property name="customerName" value="Raghu" />
+		<property name="customerAge" value="25" />
+	</bean>
+
+	<bean id="addressObj1" class="com.spring.wiringAnnotations.Address">
+		<property name="city" value="Columbus" />
+		<property name="state" value="Ohio" />
+	</bean>
+
+	<bean id="addressObj2" class="com.spring.wiringAnnotations.Address">
+		<property name="city" value="Irving" />
+		<property name="state" value="Texas" />
+	</bean>
+
+</beans>

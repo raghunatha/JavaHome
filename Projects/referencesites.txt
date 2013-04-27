@@ -1,0 +1,6 @@
+http://devsnippets.com/article/10-transition-effects-the-art-of-showinghiding-content.html
+
+http://net.tutsplus.com/tutorials/javascript-ajax/inettuts/
+http://designgala.com/how-to-expand-collapse-toggle-div-layer-using-jquery/
+http://jsfiddle.net/CvhkM/
+http://vandelaydesign.com/blog/web-development/jquery-menu-scripts/

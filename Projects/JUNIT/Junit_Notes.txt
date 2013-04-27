@@ -1,0 +1,4 @@
+when trying to run junit or powermok the below error occured
+http://java.dzone.com/articles/javalangverifyerror-expecting
+resolved by adding  
+Go to Windows -> Preferences -> Installed JREs. Select the default JVM and click edit. Then add this parameter as VM argument “-XX:-UseSplitVerifier” as seen below.

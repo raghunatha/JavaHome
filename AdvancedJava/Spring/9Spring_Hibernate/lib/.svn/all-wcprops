@@ -1,0 +1,143 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/CignitiBatch001/!svn/ver/100/trunk/spring/lib
+END
+aopalliance.jar
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/CignitiBatch001/!svn/ver/99/trunk/spring/lib/aopalliance.jar
+END
+commons-collections-3.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/CignitiBatch001/!svn/ver/100/trunk/spring/lib/commons-collections-3.1.jar
+END
+org.springframework.asm-3.1.1.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/CignitiBatch001/!svn/ver/98/trunk/spring/lib/org.springframework.asm-3.1.1.RELEASE.jar
+END
+commons-dbcp-1.4.jar
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/CignitiBatch001/!svn/ver/100/trunk/spring/lib/commons-dbcp-1.4.jar
+END
+org.springframework.transaction-3.1.1.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/CignitiBatch001/!svn/ver/100/trunk/spring/lib/org.springframework.transaction-3.1.1.RELEASE.jar
+END
+jta-1.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/CignitiBatch001/!svn/ver/100/trunk/spring/lib/jta-1.1.jar
+END
+aopalliance-1.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/CignitiBatch001/!svn/ver/99/trunk/spring/lib/aopalliance-1.0.jar
+END
+slf4j-api-1.6.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/CignitiBatch001/!svn/ver/100/trunk/spring/lib/slf4j-api-1.6.1.jar
+END
+org.springframework.aop-3.1.1.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/CignitiBatch001/!svn/ver/99/trunk/spring/lib/org.springframework.aop-3.1.1.RELEASE.jar
+END
+org.springframework.beans-3.1.1.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/CignitiBatch001/!svn/ver/98/trunk/spring/lib/org.springframework.beans-3.1.1.RELEASE.jar
+END
+commons-pool.jar
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/CignitiBatch001/!svn/ver/100/trunk/spring/lib/commons-pool.jar
+END
+hibernate3.jar
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/CignitiBatch001/!svn/ver/100/trunk/spring/lib/hibernate3.jar
+END
+org.springframework.expression-3.1.1.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/CignitiBatch001/!svn/ver/98/trunk/spring/lib/org.springframework.expression-3.1.1.RELEASE.jar
+END
+javassist-3.12.0.GA.jar
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/CignitiBatch001/!svn/ver/100/trunk/spring/lib/javassist-3.12.0.GA.jar
+END
+hibernate-jpa-2.0-api-1.0.1.Final.jar
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/CignitiBatch001/!svn/ver/100/trunk/spring/lib/hibernate-jpa-2.0-api-1.0.1.Final.jar
+END
+commons-logging-1.0.4.jar
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/CignitiBatch001/!svn/ver/98/trunk/spring/lib/commons-logging-1.0.4.jar
+END
+dom4j-1.6.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/CignitiBatch001/!svn/ver/100/trunk/spring/lib/dom4j-1.6.1.jar
+END
+org.springframework.jdbc-3.1.1.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/CignitiBatch001/!svn/ver/100/trunk/spring/lib/org.springframework.jdbc-3.1.1.RELEASE.jar
+END
+org.springframework.orm-3.1.1.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/CignitiBatch001/!svn/ver/100/trunk/spring/lib/org.springframework.orm-3.1.1.RELEASE.jar
+END
+org.springframework.core-3.1.1.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/CignitiBatch001/!svn/ver/98/trunk/spring/lib/org.springframework.core-3.1.1.RELEASE.jar
+END
+org.springframework.context-3.1.1.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/CignitiBatch001/!svn/ver/98/trunk/spring/lib/org.springframework.context-3.1.1.RELEASE.jar
+END
+mysql-connector-java-5.1.21-bin.jar
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/CignitiBatch001/!svn/ver/100/trunk/spring/lib/mysql-connector-java-5.1.21-bin.jar
+END
+commons-collections.jar
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/CignitiBatch001/!svn/ver/100/trunk/spring/lib/commons-collections.jar
+END

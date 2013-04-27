@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/CignitiBatch001/!svn/ver/100/trunk/spring/src/com/kairos/spring/jdbc
+END
+spring-jdbc.xml
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/CignitiBatch001/!svn/ver/100/trunk/spring/src/com/kairos/spring/jdbc/spring-jdbc.xml
+END
+UserMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/CignitiBatch001/!svn/ver/100/trunk/spring/src/com/kairos/spring/jdbc/UserMapper.java
+END
+User.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/CignitiBatch001/!svn/ver/100/trunk/spring/src/com/kairos/spring/jdbc/User.java
+END
+UserDaoTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/CignitiBatch001/!svn/ver/100/trunk/spring/src/com/kairos/spring/jdbc/UserDaoTest.java
+END
+UserDAOImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/CignitiBatch001/!svn/ver/100/trunk/spring/src/com/kairos/spring/jdbc/UserDAOImpl.java
+END

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="address" class="com.java.core.Address">
+		<property name="line1" value="300 N MacArthur Ln"></property>
+		<property name="line2" value="Suite 100"></property>
+		<property name="city" value="Irving"></property>
+		<property name="state" value="TX"></property>
+		<property name="zip" value="75039"></property>		
+	</bean>
+
+</beans>

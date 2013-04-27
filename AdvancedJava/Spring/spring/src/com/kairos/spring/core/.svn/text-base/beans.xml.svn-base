@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+<import resource="beans-ext.xml"/>
+<bean id="helloWorld" class="com.kairos.spring.core.HelloWorld">
+
+</bean>
+
+<bean id="student" class="com.kairos.spring.core.Student">
+<constructor-arg name="studentId" value="1"></constructor-arg>
+<constructor-arg name="studentName" value="Siva"></constructor-arg>
+<constructor-arg name="course" value="Java"></constructor-arg>
+
+<property name="address" ref="address"></property>
+<property name="marks">
+<map>
+<entry key="Math" value="85"/>
+<entry key="Science" value="95"/>
+<entry key="English" value="65"/>
+<entry key="Social"><value>66</value></entry>
+
+</map>
+
+</property>
+</bean>
+
+
+
+</beans>

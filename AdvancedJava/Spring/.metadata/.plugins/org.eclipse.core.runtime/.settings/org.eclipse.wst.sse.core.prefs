@@ -1,0 +1,2 @@
+eclipse.preferences.version=1
+task-tag-projects-already-scanned=10Spring_Bean_References,11Spring_Bean_Collections,12Spring_DateInjection,1WithOutSpring,2WithSpring,3Spring_HelloWorld,4Spring_HelloWorld_A,5Spring_IOC_ConstructorInjection,6Spring_IOC_SetterInjection,7Spring_AOP_Internet,8Spring_JDBC,9Spring_Hibernate,JMS,RemoteSystemsTempFiles,Servers,SpringAOPAdvice,Test,spring,springmvc

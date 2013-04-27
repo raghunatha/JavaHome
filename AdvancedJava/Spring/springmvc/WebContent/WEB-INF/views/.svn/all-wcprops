@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/CignitiBatch001/!svn/ver/104/trunk/springmvc/WebContent/WEB-INF/views
+END
+login.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/CignitiBatch001/!svn/ver/104/trunk/springmvc/WebContent/WEB-INF/views/login.jsp
+END
+loginSuccess.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/CignitiBatch001/!svn/ver/104/trunk/springmvc/WebContent/WEB-INF/views/loginSuccess.jsp
+END
+simpleFormSubmit.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/CignitiBatch001/!svn/ver/104/trunk/springmvc/WebContent/WEB-INF/views/simpleFormSubmit.jsp
+END
+helloWorld.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/CignitiBatch001/!svn/ver/104/trunk/springmvc/WebContent/WEB-INF/views/helloWorld.jsp
+END
+kairos.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/CignitiBatch001/!svn/ver/104/trunk/springmvc/WebContent/WEB-INF/views/kairos.jsp
+END
+simpleForm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/CignitiBatch001/!svn/ver/104/trunk/springmvc/WebContent/WEB-INF/views/simpleForm.jsp
+END

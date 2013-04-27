@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/CignitiBatch001/!svn/ver/104/trunk/springmvc/WebContent/WEB-INF
+END
+messages.properties
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/CignitiBatch001/!svn/ver/104/trunk/springmvc/WebContent/WEB-INF/messages.properties
+END
+mvcservlet-servlet.xml
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/CignitiBatch001/!svn/ver/104/trunk/springmvc/WebContent/WEB-INF/mvcservlet-servlet.xml
+END
+web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/CignitiBatch001/!svn/ver/104/trunk/springmvc/WebContent/WEB-INF/web.xml
+END

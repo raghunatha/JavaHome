@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName"><value>com.mysql.jdbc.Driver</value></property>
+        <property name="url"><value>jdbc:mysql://localhost:3306/kairosjuly</value></property>
+        <property name="username"><value>root</value></property>
+        <property name="password"><value>password</value></property>
+    </bean>
+
+    <!-- Hibernate SessionFactory -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource"><ref local="dataSource"/></property>
+        <property name="mappingResources">
+            <list>
+                <value>com/kairos/spring/hibernate/User.hbm.xml</value>
+                 <value>com/kairos/spring/hibernate/Employee.hbm.xml</value>
+                  <value>com/kairos/spring/hibernate/Address.hbm.xml</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+        <props>
+            <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+            <prop key="hibernate.hbm2ddl.auto">update</prop>
+           <prop key="hibernate.show_sql">true</prop>
+        </props>
+        </property>
+    </bean>
+
+
+
+   <bean id="springHibernateDAO" class="com.kairos.spring.hibernate.SpringHibernateUserDAO">
+   
+   <property name="sessionFactory" ref="sessionFactory"></property>
+   
+   </bean>
+   <bean id="employeeDAO" class="com.kairos.spring.hibernate.SpringHibernateEmployeeDAO">
+   
+   <property name="sessionFactory" ref="sessionFactory"></property>
+   
+   </bean>
+</beans>

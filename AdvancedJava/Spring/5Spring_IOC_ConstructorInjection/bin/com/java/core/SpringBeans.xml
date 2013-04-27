@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="address" class="com.java.core.Address">
+		<constructor-arg name="line1" value="300 N MacArthur Ln"></constructor-arg>
+		<constructor-arg name="line2" value="Suite 100"></constructor-arg>
+		<constructor-arg name="city" value="Irving"></constructor-arg>
+		<constructor-arg name="state" value="TX"></constructor-arg>
+		<constructor-arg name="zip" value="75039"></constructor-arg>
+	</bean>
+
+</beans>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="com.kairos.spring.hibernate.Employee" table="Employee">
+<id name="empId" column="empId">
+<generator class="increment"></generator>
+</id>
+<property name="dept" column="dept"></property>
+<property name="empName" column="empName"></property>
+  <set name="addresses" table="Address" 
+				inverse="true" lazy="false" fetch="select" cascade="all">
+            <key>
+                <column name="empId" not-null="true" />
+            </key>
+            <one-to-many class="com.kairos.spring.hibernate.Address" />
+        </set>
+</class>
+
+
+
+
+
+</hibernate-mapping>

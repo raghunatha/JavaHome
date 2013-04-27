@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/CignitiBatch001/!svn/ver/99/trunk/spring/src/com/kairos/spring/aop
+END
+Customer.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/CignitiBatch001/!svn/ver/99/trunk/spring/src/com/kairos/spring/aop/Customer.java
+END
+CustomerImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/CignitiBatch001/!svn/ver/99/trunk/spring/src/com/kairos/spring/aop/CustomerImpl.java
+END
+OrderPrintsAdvice.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/CignitiBatch001/!svn/ver/99/trunk/spring/src/com/kairos/spring/aop/OrderPrintsAdvice.java
+END
+InternetAdvice.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/CignitiBatch001/!svn/ver/99/trunk/spring/src/com/kairos/spring/aop/InternetAdvice.java
+END
+CafeOwner.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/CignitiBatch001/!svn/ver/99/trunk/spring/src/com/kairos/spring/aop/CafeOwner.java
+END
+InternetTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/CignitiBatch001/!svn/ver/99/trunk/spring/src/com/kairos/spring/aop/InternetTest.java
+END
+springAop.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/CignitiBatch001/!svn/ver/99/trunk/spring/src/com/kairos/spring/aop/springAop.xml
+END

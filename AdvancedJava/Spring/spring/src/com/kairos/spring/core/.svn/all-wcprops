@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/CignitiBatch001/!svn/ver/98/trunk/spring/src/com/kairos/spring/core
+END
+beans-ext.xml
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/CignitiBatch001/!svn/ver/98/trunk/spring/src/com/kairos/spring/core/beans-ext.xml
+END
+HelloWorld.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/CignitiBatch001/!svn/ver/98/trunk/spring/src/com/kairos/spring/core/HelloWorld.java
+END
+StudentTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/CignitiBatch001/!svn/ver/98/trunk/spring/src/com/kairos/spring/core/StudentTest.java
+END
+Student.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/CignitiBatch001/!svn/ver/98/trunk/spring/src/com/kairos/spring/core/Student.java
+END
+Address.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/CignitiBatch001/!svn/ver/98/trunk/spring/src/com/kairos/spring/core/Address.java
+END
+beans.xml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/CignitiBatch001/!svn/ver/98/trunk/spring/src/com/kairos/spring/core/beans.xml
+END
+HelloWorldTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/CignitiBatch001/!svn/ver/98/trunk/spring/src/com/kairos/spring/core/HelloWorldTest.java
+END

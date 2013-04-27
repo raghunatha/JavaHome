@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<import resource="classpath:com/java/beans/SpringCommon.xml" />
+
+	<!-- Type1 start -->	
+	<bean id="address" class="com.java.beans.Address">
+		<property name="line1" value="300 N MacArthur Ln"></property>
+		<property name="line2" value="Suite100"></property>
+		<property name="city" value="Irving"></property>
+		<property name="state" value="TX"></property>
+		<property name="zip" value="75039"></property>
+	</bean>
+
+	<!-- singleton – Return a single bean instance per Spring IoC container (Default) -->
+	<!-- prototype – Return a new bean instance each time when requested -->
+	<bean id="student" class="com.java.beans.Student" scope="singleton">
+		<property name="studentAddress">
+			<ref local="address" />
+		</property>
+		<property name="studentCourse">
+			<ref bean="course" />
+		</property>
+	</bean>
+	<!-- Type1 end -->
+
+	<!-- Type2 start 
+	<bean id="student" class="com.java.beans.Student">
+		<property name="studentAddress">
+			<bean class="com.java.beans.Address">
+				<property name="line1" value="300 N MacArthur Ln"></property>
+				<property name="line2" value="Suite 100"></property>
+				<property name="city" value="Irving"></property>
+				<property name="state" value="TX"></property>
+				<property name="zip" value="75039"></property>
+			</bean>
+		</property>
+		<property name="studentCourse">
+			<bean class="com.java.beans.Course">
+				<property name="courseId" value="101"></property>
+				<property name="courseName" value="English"></property>
+			</bean>
+		</property>
+	</bean> -->
+	<!-- Type2 end -->
+
+</beans>

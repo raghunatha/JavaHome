@@ -1,0 +1,122 @@
+SDLC -- Software development life cycle
+
+1) WaterFall Methodology
+2) Agile Methodology
+
+================================================================================================
+WaterFall Methodology:
+	
+	Requirements Phase --> gathering the requirements for developing an application
+	
+	Design Phase --> BA(Business Analyst) will come up with a design document.
+					 Architects will design the project structure and the technologies that will be used and so on.
+					 HLD -> contains the high level view of the proj
+					 DD -> containts mock up screen shots, how communication happens, what is the protocol they follow for communications, Interfaces .....
+					 During this process you might come up with UML diagrams, which basically tells the classes and the interactions and flow of data between them...
+
+	Implementation Phase --> The devloper will develope the code based on the above documents
+
+	Verification Phase --> verifying the code and validating if it meets the business requirements or not
+	
+	Maintenance Phase --> Once the sofware is launched we need to support the application and make sure that we do bug fixes, or patches, or any enhancements,
+							or any modifications to the application can be done in this phase.
+
+Down Side of WaterFall Model	
+	The business cannot actually see the software till you complete the project(lets say for developing the application it takes an year, which means they cannot
+		see what is being developed till it is done).
+	Making changes will be very difficult, because we are already in development phase(design phase is crossed).
+	If Business does not like what you have developed then entire application should be scraped.
+	
+But we can use this methodology in some scenarios where we have solid requirements, like before developing the application if you are very solid of what
+	you are planning to design, and if there are no scope changes which might come in future, then you can go with waterfall methodology	
+Ex: designing and developing an Aircraft of a space shuttle --> waterfall can be used
+	designing applications like banking or any websites --> waterfall cannot be used since the requirements keep on changing
+	
+================================================================================================ 
+Agile Methodology:
+
+Most suited when "Requirements are dynamic" (requirements keep on changing)
+
+Advantages :
+	Changes can be incorporated at any point of time.	
+
+Agile follows Iterative development : Start with small changes and then build up on the system based on client requirements
+Scrum and XP are mostly used agile methodologies in the industry
+
+SCRUM:
+	work will be done in Sprints
+	In general sprints span from 2 to 4 weeks
+	There will be user stories which will be defined that needs to be developed in the sprint
+	Each user story has a particular business functionality that needs to be developed
+	During the start of the sprint will be a planning session on how exatly the design and implemntation of the business stories should happen 
+	Scrum Master :- will be Project manager
+	Product Owner :- sets the priority of what exactly are the high priority things that needs to be worked on and so on.
+	Daily there will be standup meetings where the developers, QA's and managers along with scrum master will come and discuss about the ongoing things(status updates)
+	Last day of the spring will be a retrospective session where the team members will do the analysis of how the sprint work went and any posities from the
+		spring, any changes or any improvements to be followed will be discussed in this session.
+	
+	Product Owner will be like a bridge between the developers and the business, and the product owner keep updating the business with the updates happening
+	
+	For maintaining all the SCRUM process we can use an application called Rally.
+	
+XP:
+	Almost similar to SCRUM, but the iterations will be much shorter when compared like a week.
+================================================================================================ 
+Delivering a product to the Business means ..???
+	Delivering the JAR or WAR or EAR.
+	
+JAR : contains all the compiled .class files. Can never have another JAR file internally stored in it. 
+WAR : conatins all the compiled .class files and JAR files.
+EAR : conatins WAR + JAR files.
+	
+How are these files created?
+	By using  some tools like ANT, Jenkins, Hudson, cruise control...
+	
+================================================================================================ 
+The developer writes the code and makes sure that the code works fine by writing unit test cases.(Pre check before delivering to QA)
+
+TDD : Test Driven Development
+The developer will be forced to write the test cases based on the requirements and then the developer developes the original coding 
+Once the actual coding is completed then the developer needs to test the programmes agains the test cases and make sure that every thing works fine.
+
+================================================================================================ 
+Frameworks try to simplyfy the work of a developer by defigning some standard ways for some repetetive problems	
+Reuse the boiler plate code(code which is not associated with business logic)
+
+================================================================================================ 
+Types of SERVERS:
+	WebServer
+	Application Server
+	
+	WebServer mostly serves all the static contents like images, css, java scripts
+	AppServer mostly serves all the business logic and tries to build any dynamic contenst required.
+	
+	Application Server:
+		JBoss -- > RedHat --> Recent versions : 4 , 5
+		WebSphere --> IBM  --> Recent versions : 7, 8
+		WebLogic --> Oracle --> Recent versions : 10, 11, 12
+		Tomcat --> Apache --> Recent versions : 6, 7 (light weight server, which cannot support certain J2EE components)
+		
+	WebServer:
+		
+
+================================================================================================ 
+
+One web server will talk to N number of app servers and will do load balancing by making some configurations in the web server.
+
+WebServer is exposed to the external world, Application server is not exposed to outside world, 
+So generally all requests will come to web server and webserver calls the application server which is in a firewall.
+So when some one makes a request to the webserver, the web server makes a call to app server through the Firewall.
+The settings in the firewall will be in such a way that it should allow the requests which are coming from the web server ip only.
+WebServer sends the request via the firewall to the Loadbalancer(which is a hardware) which again calls the App servers based on the loads they are handling.
+
+================================================================================================ 
+All your programming is done in an IDE:- Integrated Development Environment
+Ex: Eclipse, MyEclipse, IntelliJ, Netbeans, Jdeveloper, RAD, 
+
+================================================================================================ 
+VERSION Control tools
+
+For maintaining the source code 
+EX : VSS, SVN, ClearCase, GIT
+ 

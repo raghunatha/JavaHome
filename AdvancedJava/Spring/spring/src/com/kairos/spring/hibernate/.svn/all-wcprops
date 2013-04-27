@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/CignitiBatch001/!svn/ver/105/trunk/spring/src/com/kairos/spring/hibernate
+END
+EmployeeTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/CignitiBatch001/!svn/ver/102/trunk/spring/src/com/kairos/spring/hibernate/EmployeeTest.java
+END
+SpringHibernateEmployeeDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/CignitiBatch001/!svn/ver/102/trunk/spring/src/com/kairos/spring/hibernate/SpringHibernateEmployeeDAO.java
+END
+Employee.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/CignitiBatch001/!svn/ver/102/trunk/spring/src/com/kairos/spring/hibernate/Employee.java
+END
+Address.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/CignitiBatch001/!svn/ver/102/trunk/spring/src/com/kairos/spring/hibernate/Address.hbm.xml
+END
+User.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/CignitiBatch001/!svn/ver/100/trunk/spring/src/com/kairos/spring/hibernate/User.java
+END
+User.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/CignitiBatch001/!svn/ver/100/trunk/spring/src/com/kairos/spring/hibernate/User.hbm.xml
+END
+spring-hibernate.xml
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/CignitiBatch001/!svn/ver/102/trunk/spring/src/com/kairos/spring/hibernate/spring-hibernate.xml
+END
+Employee.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/CignitiBatch001/!svn/ver/102/trunk/spring/src/com/kairos/spring/hibernate/Employee.hbm.xml
+END
+Address.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/CignitiBatch001/!svn/ver/102/trunk/spring/src/com/kairos/spring/hibernate/Address.java
+END
+SpringHibernateUserDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/CignitiBatch001/!svn/ver/102/trunk/spring/src/com/kairos/spring/hibernate/SpringHibernateUserDAO.java
+END
+SpringHibernateUserDAOT.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/CignitiBatch001/!svn/ver/105/trunk/spring/src/com/kairos/spring/hibernate/SpringHibernateUserDAOT.java
+END

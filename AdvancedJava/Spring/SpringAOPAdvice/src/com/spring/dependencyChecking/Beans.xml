@@ -1,0 +1,30 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<!-- None: -->
+	<!-- Simple: dependency-check="simple" -->
+	<!-- Objects: dependency-check="objects" -->
+	<!-- all: dependency-check="all" -->
+	<!-- Global default: default-dependency-check="all" -->
+	<!-- @Required: apply @Required in setPerson() method in Customer.java 
+		1) <context:annotation-config /> or 
+		2) <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/> -->	
+	
+
+	<bean id="customerBean" class="com.spring.dependencyChecking.Customer">
+		<property name="type" value="3" />
+		<property name="person" ref="personBean"/>
+	</bean>
+
+	<bean id="personBean" class="com.spring.dependencyChecking.Person">
+		<property name="name" value="mkyong" />
+		<property name="address" value="address ABC" />
+		<property name="age" value="29" />
+	</bean>
+
+</beans>
